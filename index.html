@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cofre de Prompts · Los prompts que uso en mi negocio</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="description" content="Usa los mismos prompts que ya me dejaron más de R$ 100.000 de ganancia. Elige, copia y pega en ChatGPT, Claude o Gemini.">
+<meta property="og:title" content="Cofre de Prompts · Los prompts que uso en mi negocio">
+<meta property="og:description" content="Los prompts que uso todos los días en mis 3 empresas. Elige, copia y pega en tu IA.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Cofre de Prompts">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+<script defer src="/_vercel/insights/script.js"></script>
+<style>
+/* ===== Tokens ===== */
+:root{
+  --bg:#120b07;--surface:#1c140e;--surface2:#22180f;--line:#2b1e15;--line2:#3a2a1f;
+  --paper:#faf6f1;--paper2:#f3ece4;--ink:#120b07;--inkmut:#5c5047;--inkline:#e9e1d8;
+  --fg:#ffffff;--mut:#b3a89d;--dim:#8a7e73;
+  --or:#ff7a1a;--or2:#ffb27a;--or3:#c2410c;
+  --serif:"Fraunces",Georgia,serif;--sans:"Inter",system-ui,-apple-system,sans-serif;--mono:"Inter",system-ui,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*:before,*:after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.55}
+img,video,svg{display:block;max-width:100%}
+img,video{height:auto}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4,p,ul{margin:0;padding:0}ul{list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--or);outline-offset:3px;border-radius:6px}
+details>summary{list-style:none;cursor:pointer}details>summary::-webkit-details-marker{display:none}
+
+/* ===== Fundo da Sinnu: grade que desliza + ruído + luz ===== */
+.grid-bg{position:relative;isolation:isolate;background:var(--bg)}
+.blob{position:absolute;z-index:-1;border-radius:999px;filter:blur(90px);pointer-events:none;animation:breathe 7s ease-in-out infinite alternate}
+@keyframes breathe{from{opacity:.55}to{opacity:1}}
+.paper{background:var(--paper);color:var(--ink);position:relative;isolation:isolate;overflow:hidden}
+.paper .blob{opacity:.6}
+
+/* ===== Tipografia ===== */
+.h1{font-family:var(--serif);font-weight:400;text-transform:uppercase;font-size:2.16rem;line-height:.92;letter-spacing:-.02em}
+@media (min-width:640px){.h1{font-size:4.2rem}}
+@media (min-width:1100px){.h1{font-size:5.4rem}}
+.h1 em,.h2 em{font-style:italic;color:var(--or)}
+.h2{font-family:var(--serif);font-weight:400;font-size:1.92rem;line-height:1;letter-spacing:-.02em}
+@media (min-width:640px){.h2{font-size:2.72rem}}
+.paper .h2 em{color:var(--or3)}
+.lead{font-size:1.02rem;line-height:1.7;color:var(--mut)}
+@media (min-width:640px){.lead{font-size:1.1rem}}
+.paper .lead{color:var(--inkmut)}
+.tag{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;background:var(--or);color:#120b07;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:.35rem .8rem}
+.tag-line{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--or)}
+.tag-line:before{content:"";width:.45rem;height:.45rem;border-radius:999px;background:var(--or);animation:pulse-dot 1.8s ease-in-out infinite}
+@keyframes pulse-dot{0%,to{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.8)}}
+.mono{font-family:var(--mono)}
+
+/* ===== Layout ===== */
+.sec{padding:5rem 1.25rem;overflow:hidden;position:relative;isolation:isolate}
+@media (min-width:1024px){.sec{padding:7rem 1.5rem}}
+.wrap{max-width:70rem;margin:0 auto}
+.narrow{max-width:48rem;margin-left:auto;margin-right:auto}
+.center{text-align:center}
+.mt1{margin-top:1rem}.mt2{margin-top:2rem}.mt3{margin-top:3rem}
+
+/* ===== Botões (pílula laranja da Pixel, seta da Sinnu) ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;border-radius:999px;background:var(--or);color:#120b07;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;padding:1rem 1.6rem;box-shadow:0 0 0 1px rgba(255,122,26,.4),0 14px 34px -12px rgba(255,122,26,.75);transition:transform .3s var(--ease),background-color .3s,box-shadow .3s}
+.btn:hover{background:var(--or2);transform:translateY(-2px);box-shadow:0 0 0 1px rgba(255,138,61,.5),0 18px 40px -12px rgba(255,122,26,.9)}
+.btn svg{width:1rem;height:1rem;transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-lg{font-size:.92rem;padding:1.2rem 2.1rem}
+.btn-full{width:100%}
+.btn-ghost{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 1px var(--line2)}
+.btn-ghost:hover{background:#ffffff0d;box-shadow:inset 0 0 0 1px var(--mut)}
+.cta-row{margin-top:3rem;display:flex;flex-direction:column;align-items:center;gap:.8rem}
+.meta{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--dim)}
+
+/* ===== Navegação ===== */
+.nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);background:rgba(18,11,7,.75);border-bottom:1px solid #ffffff0d}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1.25rem}
+.logo{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--serif);font-size:1.12rem;font-style:italic}
+.logo b{display:inline-grid;place-items:center;width:1.7rem;height:1.7rem;border-radius:.45rem;background:var(--or);color:#120b07;font-family:var(--sans);font-style:normal;font-size:.72rem;font-weight:700}
+.nav .btn{padding:.6rem 1.1rem;font-size:.7rem}
+
+/* ===== Hero ===== */
+.hero{overflow:hidden;position:relative;isolation:isolate}
+@media (min-width:1024px){.hero{padding-top:5.5rem}}
+.hero .h1{max-width:62rem;margin:1.4rem auto 0}
+.hero .lead{max-width:38rem;margin:1.6rem auto 0}
+.hero-grid{display:flex;flex-direction:column;align-items:center}
+.portrait{position:relative;margin:2.75rem auto 0;width:min(18rem,74vw);aspect-ratio:4/5;border-radius:1.4rem;overflow:hidden;border:1px solid var(--line2);box-shadow:0 40px 90px -30px rgba(255,122,26,.55);animation:float-3d 6s ease-in-out infinite}
+@keyframes float-3d{0%,to{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-9px) rotate(1deg)}}
+.portrait img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06)}
+.portrait:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(18,11,7,.95))}
+.live{position:absolute;top:.9rem;left:.9rem;z-index:2;display:inline-flex;align-items:center;gap:.45rem;border-radius:999px;background:rgba(18,11,7,.85);border:1px solid rgba(255,122,26,.5);padding:.35rem .75rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase}
+.live i{width:.45rem;height:.45rem;border-radius:999px;background:#ff3b30;animation:pulse-dot 1.4s infinite}
+.portrait figcaption{position:absolute;left:1rem;right:1rem;bottom:1rem;z-index:2;text-align:left}
+.portrait figcaption b{display:block;font-family:var(--serif);font-size:1.2rem;font-weight:400;line-height:1}
+.portrait figcaption span{font-family:var(--mono);font-size:.68rem;color:var(--mut)}
+.hero-cta{margin-top:2.25rem}
+.marquee{margin-top:4rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(18,11,7,.85);overflow:hidden;padding:1rem 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.track{display:flex;gap:.7rem;width:max-content;animation:marquee 40s linear infinite}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.pill{display:inline-flex;align-items:center;gap:.5rem;white-space:nowrap;border:1px solid var(--line2);background:var(--surface);border-radius:999px;padding:.5rem 1rem;font-size:.85rem;color:var(--fg)}
+.pill b{color:var(--or)}
+
+/* ===== Cansado de / aprende ===== */
+.twocol{display:grid;gap:1.1rem;margin-top:3.5rem;text-align:left}
+@media (min-width:880px){.twocol{grid-template-columns:1fr 1fr}}
+.col{border-radius:1.5rem;padding:2rem 1.5rem}
+.col h3{font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;margin-bottom:1.25rem}
+.col.light{background:#fff;border:1px solid var(--inkline)}
+.col.light h3{color:var(--inkmut)}
+.col.dark{background:var(--ink);color:var(--fg);box-shadow:0 30px 70px -35px rgba(255,122,26,.6)}
+.col.dark h3{color:var(--or)}
+.col li{display:flex;gap:.8rem;align-items:flex-start;padding:.85rem 0;border-top:1px solid var(--inkline);font-size:.97rem;line-height:1.45}
+.col.dark li{border-top-color:#ffffff14}
+.col li svg{flex:none;width:1.1rem;height:1.1rem;margin-top:.15rem}
+.x{color:#e5484d}.ok{color:var(--or)}
+
+/* ===== História (card laranja da Pixel/Vibehub) ===== */
+.me{display:grid;gap:1.75rem;align-items:center;border-radius:1.75rem;padding:1.75rem;background:radial-gradient(120% 120% at 0% 0%,#ffb27a 0%,#ff7a1a 45%,#7a2a08 100%);color:#1a0d03;margin-top:3rem;text-align:left;position:relative;overflow:hidden}
+.me:after{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff14 1px,#0000 1px),linear-gradient(90deg,#ffffff14 1px,#0000 1px);background-size:40px 40px;pointer-events:none;-webkit-mask-image:linear-gradient(120deg,#000,transparent 70%);mask-image:linear-gradient(120deg,#000,transparent 70%)}
+@media (min-width:860px){.me{grid-template-columns:1fr 16rem;padding:3rem}}
+.me > *{position:relative;z-index:1}
+.me .tag{background:#1a0d03;color:var(--fg)}
+.me h3{margin-top:.9rem;font-family:var(--serif);font-weight:400;font-size:2.24rem;line-height:1;color:#120b07}
+.me p{margin-top:1rem;font-size:1rem;line-height:1.7;color:#2b1405}
+.me img{width:100%;max-width:16rem;margin:0 auto;aspect-ratio:1/1;object-fit:cover;border-radius:1.2rem;border:3px solid rgba(26,13,3,.3);filter:grayscale(1) contrast(1.05);animation:float-3d 7s ease-in-out infinite}
+.results{display:grid;gap:1rem;margin-top:1rem;text-align:left}
+@media (min-width:860px){.results{grid-template-columns:1fr 1fr}}
+.res{position:relative;overflow:hidden;border:1px solid var(--line);background:linear-gradient(180deg,var(--surface2),var(--surface));border-radius:1.4rem;padding:1.75rem 1.5rem}
+.res:before{content:"";position:absolute;right:-30%;top:-60%;width:70%;height:120%;background:radial-gradient(circle,rgba(255,122,26,.28),transparent 65%);pointer-events:none}
+.res-n{font-family:var(--serif);font-size:2.72rem;line-height:.95;color:var(--or)}
+.res-t{margin-top:.5rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+.res-d{margin-top:.9rem;font-size:.95rem;line-height:1.7;color:var(--mut)}
+
+/* ===== Virada de chave ===== */
+.can{display:grid;gap:.9rem;margin-top:2.5rem;text-align:left}
+@media (min-width:860px){.can{grid-template-columns:1fr 1fr}}
+.can div{display:flex;align-items:center;gap:1rem;border:1px solid var(--line);background:var(--surface);border-radius:1.2rem;padding:1.25rem 1.3rem;font-size:1rem;line-height:1.45;transition:border-color .35s,transform .35s var(--ease)}
+.can div:hover{border-color:rgba(255,122,26,.55);transform:translateY(-3px)}
+.can-ico{flex:none;display:grid;place-items:center;width:2.9rem;height:2.9rem;border-radius:.85rem;background:linear-gradient(135deg,#ffb27a,#c2410c);color:#120b07;box-shadow:0 10px 24px -10px rgba(255,122,26,.8)}
+.can-ico svg{width:1.3rem;height:1.3rem}
+.alert{display:flex;gap:.9rem;align-items:flex-start;max-width:40rem;margin:2.5rem auto 0;border:1px solid rgba(255,122,26,.4);background:rgba(255,122,26,.07);border-radius:1.1rem;padding:1.2rem 1.3rem;text-align:left;font-size:1rem;line-height:1.6}
+.alert svg{flex:none;width:1.35rem;height:1.35rem;color:var(--or);margin-top:.1rem}
+
+/* ===== Aulas (cards de módulo da Pixel) ===== */
+.lessons{display:grid;gap:1rem;margin-top:3rem;text-align:left}
+@media (min-width:860px){.lessons{grid-template-columns:repeat(3,1fr)}}
+.lesson{position:relative;overflow:hidden;min-height:15rem;display:flex;flex-direction:column;justify-content:flex-end;border-radius:1.4rem;padding:1.5rem;background:radial-gradient(90% 70% at 70% 20%,rgba(255,122,26,.45),transparent 60%),linear-gradient(160deg,#2a2a2e,#120b07);color:var(--fg);box-shadow:0 25px 50px -25px rgba(0,0,0,.6);transition:transform .4s var(--ease)}
+.lesson:hover{transform:translateY(-6px)}
+.lesson .num{position:absolute;top:1.2rem;left:1.4rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--or2)}
+.lesson .ico{position:absolute;top:1.1rem;right:1.2rem;width:3.2rem;height:3.2rem;border-radius:1rem;display:grid;place-items:center;background:rgba(255,122,26,.16);border:1px solid rgba(255,122,26,.45);color:var(--or2)}
+.lesson .ico svg{width:1.5rem;height:1.5rem}
+.lesson h3{font-family:var(--serif);font-weight:400;font-size:1.4rem;line-height:1.05}
+
+/* ===== Por dentro (explorer) ===== */
+.explorer{max-width:62rem;margin:3rem auto 0;border:1px solid var(--line2);border-radius:1.4rem;overflow:hidden;background:#0d0d0f;text-align:left;box-shadow:0 50px 100px -40px rgba(255,122,26,.45)}
+.ex-bar{display:flex;align-items:center;gap:.4rem;padding:.65rem .9rem;border-bottom:1px solid var(--line)}
+.ex-bar i{width:.55rem;height:.55rem;border-radius:999px;background:var(--line2)}
+.ex-bar span{margin:0 auto;font-family:var(--mono);font-size:.68rem;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:.15rem .8rem}
+.ex-notch{display:none}
+.ex-body{display:grid}
+@media (min-width:760px){.ex-body{grid-template-columns:13rem 1fr}}
+.ex-nav{display:flex;gap:.4rem;overflow-x:auto;padding:.75rem;border-bottom:1px solid var(--line)}
+@media (min-width:760px){.ex-nav{flex-direction:column;border-bottom:0;border-right:1px solid var(--line);padding:1rem .75rem}}
+.ex-nav button{display:flex;align-items:center;gap:.55rem;white-space:nowrap;border:1px solid transparent;border-radius:.7rem;padding:.6rem .8rem;font-size:.88rem;color:var(--mut);transition:background-color .25s,color .25s,border-color .25s}
+.ex-nav button svg{width:1rem;height:1rem;flex:none}
+.ex-nav button:hover{color:var(--fg)}
+.ex-nav button[aria-selected="true"]{background:rgba(255,122,26,.13);border-color:rgba(255,122,26,.45);color:var(--fg)}
+.ex-panel{display:none}
+.ex-panel.on{display:block;animation:fadein .4s ease}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.ex-panel img,.ex-panel video{width:100%;aspect-ratio:1280/732;object-fit:cover;background:#0d0d0d}
+.locked{position:relative;aspect-ratio:1280/732;min-height:17rem;overflow:hidden}
+.lk-cards{position:absolute;inset:1rem;display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;filter:blur(6px);opacity:.6}
+.lk-cards div{display:flex;align-items:flex-end;padding:.8rem;border-radius:.9rem;background:radial-gradient(80% 80% at 70% 20%,rgba(255,122,26,.35),transparent 60%),#1c1c20;border:1px solid var(--line2);font-size:.8rem}
+.lk-rows{grid-template-columns:1fr}
+.lk-msg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.45rem;text-align:center;padding:1rem;background:radial-gradient(circle,rgba(13,13,15,.55),rgba(13,13,15,.88))}
+.lk-msg b{font-family:var(--serif);font-weight:400;font-size:1.44rem;line-height:1}
+.lk-msg span{font-size:.85rem;color:var(--mut)}
+.lk-msg .btn{margin-top:.8rem;font-size:.7rem;padding:.75rem 1.2rem}
+.lk-ico{display:grid;place-items:center;width:2.7rem;height:2.7rem;border-radius:999px;border:1px solid rgba(255,122,26,.55);color:var(--or);margin-bottom:.3rem}
+.lk-ico svg{width:1.2rem;height:1.2rem}
+.peek{position:relative}
+.peek img,.peek video{filter:blur(1.5px) saturate(.9)}
+.peek-lock{position:absolute;left:50%;bottom:1rem;transform:translateX(-50%);display:inline-flex;align-items:center;gap:.5rem;white-space:nowrap;border-radius:999px;background:rgba(13,13,15,.9);border:1px solid rgba(255,122,26,.45);padding:.35rem .85rem .35rem .35rem;font-size:.76rem}
+.peek-lock .lk-ico{width:1.8rem;height:1.8rem;margin:0}
+.peek-lock .lk-ico svg{width:.9rem;height:.9rem}
+.devices{display:inline-flex;gap:.3rem;margin-top:1.4rem;border:1px solid var(--line2);border-radius:999px;padding:.3rem;background:var(--surface)}
+.devices button{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);padding:.55rem 1rem;border-radius:999px}
+.devices button svg{width:1.05rem;height:1.05rem}
+.devices button[aria-pressed="true"]{background:var(--or);color:#120b07}
+.explorer[data-device="mobile"]{max-width:20.5rem;border-radius:2.6rem;border:9px solid #26262a;padding-top:.4rem}
+.explorer[data-device="mobile"] .ex-bar{display:none}
+.explorer[data-device="mobile"] .ex-notch{display:block;width:5.5rem;height:1.15rem;margin:.25rem auto .45rem;border-radius:999px;background:#26262a}
+.explorer[data-device="mobile"] .ex-body{display:flex;flex-direction:column-reverse}
+.explorer[data-device="mobile"] .ex-nav{flex-direction:row;justify-content:space-around;border-right:0;border-top:1px solid var(--line);border-bottom:0;padding:.5rem .25rem .75rem;overflow:visible}
+.explorer[data-device="mobile"] .ex-nav button{flex-direction:column;gap:.2rem;font-size:.64rem;padding:.4rem .3rem}
+.explorer[data-device="mobile"] .locked{aspect-ratio:9/14;min-height:0}
+.explorer[data-device="mobile"] .lk-cards{grid-template-columns:1fr}
+.explorer[data-device="mobile"] .ex-panel img,.explorer[data-device="mobile"] .ex-panel video{aspect-ratio:9/14;object-position:left top}
+
+/* ===== O que você recebe (cards "Entrando hoje" da Pixel) ===== */
+.get{display:grid;gap:1rem;margin-top:3rem;text-align:left}
+@media (min-width:760px){.get{grid-template-columns:1fr 1fr}}
+.gcard{position:relative;overflow:hidden;min-height:12.5rem;border-radius:1.4rem;padding:1.6rem;background:linear-gradient(160deg,#232327,#121214);color:var(--fg);display:flex;flex-direction:column;justify-content:flex-end;transition:transform .4s var(--ease)}
+.gcard:hover{transform:translateY(-5px)}
+.gcard:before{content:"";position:absolute;right:-15%;top:-35%;width:65%;height:110%;background:radial-gradient(circle,rgba(255,122,26,.42),transparent 62%);pointer-events:none}
+.gcard .gico{position:absolute;top:1.3rem;right:1.3rem;width:3.4rem;height:3.4rem;border-radius:1rem;display:grid;place-items:center;background:linear-gradient(135deg,#ffb27a,#c2410c);color:#120b07;box-shadow:0 14px 30px -10px rgba(255,122,26,.85)}
+.gcard .gico svg{width:1.55rem;height:1.55rem}
+.gcard .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--or2)}
+.gcard h3{margin-top:.5rem;font-family:var(--serif);font-weight:400;font-size:1.6rem;line-height:1}
+.gcard p{margin-top:.6rem;font-size:.92rem;line-height:1.6;color:var(--mut);max-width:26rem}
+
+/* ===== Oferta ===== */
+#oferta{scroll-margin-top:4rem}
+.offer{max-width:36rem;margin:0 auto;border:1px solid rgba(255,122,26,.55);border-radius:1.75rem;background:linear-gradient(180deg,#1c1c20,#121214);padding:2.25rem 1.4rem;box-shadow:0 50px 110px -40px rgba(255,122,26,.6);text-align:center}
+@media (min-width:640px){.offer{padding:3rem 2.6rem}}
+.offer .name{font-family:var(--serif);font-size:2.08rem;line-height:1}
+.offer .name em{font-style:italic;color:var(--or)}
+.stack{margin-top:1.75rem;text-align:left;border-top:1px solid var(--line)}
+.stack li{display:flex;align-items:baseline;gap:.7rem;padding:.9rem 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.stack li:before{content:"✓";color:var(--or);font-weight:700}
+.stack li span{flex:1}
+.stack s{flex:none;font-family:var(--mono);font-size:.85rem;color:var(--dim)}
+.pricebox{margin-top:1.75rem}
+.pricebox .cond{font-size:.92rem;color:var(--mut)}
+.pricebox .old{font-family:var(--mono);color:var(--dim)}
+.pricebox .val{margin-top:.35rem;font-family:var(--serif);font-size:clamp(2.72rem,12.8vw,4rem);line-height:1;color:var(--or);white-space:nowrap}
+.pricebox .val small{font-family:var(--sans);font-size:1.1rem;font-weight:700;color:var(--fg);margin-right:.4rem;vertical-align:.7em}
+.pricebox .per{margin-top:.8rem;font-size:.92rem}
+.offer .btn{margin-top:1.75rem}
+.guar-inline{display:flex;gap:.9rem;align-items:center;margin-top:1.4rem;border:1px solid rgba(255,122,26,.35);border-radius:1rem;padding:.9rem 1rem;background:rgba(255,122,26,.06);text-align:left}
+.gi-days{flex:none;display:grid;place-items:center;align-content:center;width:3.6rem;height:3.6rem;border-radius:999px;border:2px solid var(--or);font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;line-height:1}
+.gi-days b{font-family:var(--serif);font-weight:400;font-size:1.36rem;color:var(--or)}
+.guar-inline b{display:block;font-size:.92rem}
+.guar-inline span{font-size:.82rem;line-height:1.5;color:var(--mut)}
+
+/* ===== Garantia ===== */
+.guar{display:grid;gap:2rem;align-items:center;border-radius:1.75rem;padding:2.25rem 1.5rem;background:#fff;border:1px solid var(--inkline);text-align:left}
+@media (min-width:760px){.guar{grid-template-columns:13rem 1fr;padding:3rem}}
+.days{display:grid;place-items:center;aspect-ratio:1/1;max-width:13rem;width:100%;margin:0 auto;border-radius:999px;background:radial-gradient(circle at 30% 30%,#ffb27a,#c2410c 70%);color:#120b07;text-align:center;box-shadow:0 30px 60px -25px rgba(255,122,26,.8);animation:float-3d 6s ease-in-out infinite}
+.days b{display:block;font-family:var(--serif);font-weight:400;font-size:4.16rem;line-height:.82}
+.days span{display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase}
+.guar h2{font-family:var(--serif);font-weight:400;font-size:1.92rem;line-height:1;color:var(--ink)}
+.guar h2 em{font-style:italic;color:var(--or3)}
+.guar p{margin-top:.9rem;font-size:1rem;line-height:1.7;color:var(--inkmut)}
+.guar .end{font-weight:600;color:var(--ink)}
+
+/* ===== FAQ (grade de cards da Pixel) ===== */
+.faq{display:grid;gap:.9rem;margin-top:3rem;text-align:left}
+@media (min-width:760px){.faq{grid-template-columns:1fr 1fr}}
+@media (min-width:1100px){.faq{grid-template-columns:repeat(3,1fr)}}
+.fq{border:1px solid var(--line);background:var(--surface);border-radius:1.2rem;padding:1.4rem 1.3rem;transition:border-color .35s}
+.fq:hover{border-color:rgba(255,122,26,.45)}
+.fq .k{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;color:var(--or)}
+.fq h3{margin-top:.55rem;font-size:1rem;font-weight:600;line-height:1.35}
+.fq p{margin-top:.6rem;font-size:.9rem;line-height:1.65;color:var(--mut)}
+
+/* ===== Rodapé (Sinnu) ===== */
+footer{border-top:1px solid var(--line);padding:2.5rem 1.25rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between}
+footer p{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+
+/* ===== Entrada com glitch (tv-glitch-in da Sinnu) ===== */
+.rv{opacity:0}
+.rv.in{animation:soft-in .9s var(--ease) both}
+@keyframes soft-in{from{opacity:0;filter:blur(8px);transform:translateY(16px)}to{opacity:1;filter:blur(0);transform:none}}
+@keyframes tv-glitch-in{
+  0%{opacity:0;filter:blur(5px) drop-shadow(6px 0 #ff285a99) drop-shadow(-6px 0 #6eb4cd99);transform:translate(-8px) scale(.96)}
+  20%{opacity:1;filter:blur(2px) drop-shadow(-4px 0 #ff285a73) drop-shadow(4px 0 #6eb4cd73);transform:translate(5px) scale(.99)}
+  40%{filter:drop-shadow(3px 0 #ff285a4d) drop-shadow(-3px 0 #6eb4cd4d);transform:translate(-3px) scale(1)}
+  60%{filter:drop-shadow(-2px 0 #ff285a2e) drop-shadow(2px 0 #6eb4cd2e);transform:translate(2px)}
+  to{opacity:1;filter:none;transform:none}
+}
+.hero .rv{animation-delay:var(--d,0s)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1}.rv.in{animation:none}
+  .track,.portrait,.me img,.days,.blob,.live i,.tag-line:before{animation:none!important}
+  .btn:hover,.lesson:hover,.gcard:hover,.can div:hover{transform:none}
+}
+
+.me .tag{color:#ffffff}
+/* ===== Alternância: maioria preta, três seções creme (Sinnu /sobre) ===== */
+body{background:var(--bg)}
+.sec{border-top:0!important}
+.grid-bg{background:radial-gradient(55rem 28rem at 12% 0%,rgba(255,122,26,.13),transparent 62%),radial-gradient(45rem 26rem at 100% 100%,rgba(255,122,26,.07),transparent 60%),var(--bg)!important;color:var(--fg)}
+.paper{--fg:#120b07;--mut:#5c5047;--dim:#8a7e73;--line:#e9e1d8;--line2:#d9cfc4;--surface:#fff;--surface2:#fff;background:#faf6f1!important;color:var(--fg)}
+.paper:before,.paper:after{content:"";position:absolute;z-index:-1;border-radius:999px;pointer-events:none}
+.paper:before{left:-8rem;top:-4rem;width:28rem;height:28rem;background:rgba(255,122,26,.38);filter:blur(80px);animation:float 9s ease-in-out infinite}
+.paper:after{right:-8rem;bottom:-6rem;width:32rem;height:32rem;background:rgba(138,143,255,.22);filter:blur(100px);animation:breathe 7s ease-in-out infinite alternate}
+@keyframes float{0%,to{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.paper .h2 em{color:#c2410c}
+.paper .lead{color:var(--mut)}
+.paper .col.light,.paper .guar{background:rgba(255,255,255,.78);backdrop-filter:blur(6px)}
+/* título do hero no estilo da página Sobre */
+.h1{text-transform:none;font-size:3rem;line-height:.95;letter-spacing:-.03em}
+@media (min-width:640px){.h1{font-size:4.4rem}}
+@media (min-width:1100px){.h1{font-size:5.6rem}}
+.hero{padding:3.5rem 1.25rem 0;text-align:left}
+.hero-grid{display:grid;gap:2.5rem;align-items:center}
+@media (min-width:960px){.hero-grid{grid-template-columns:1.35fr .65fr;gap:3rem}}
+.hero .h1{margin:1.3rem 0 0;max-width:none}
+.hero .lead{margin:1.4rem 0 0;max-width:36rem}
+.hero .portrait{margin:0 auto}
+.hero-trail{margin-top:1.6rem;font-size:.72rem;letter-spacing:.12em;color:var(--dim)}
+.hero-trail span{margin:0 .4rem}.hero-trail b{color:var(--or);font-weight:500}
+.lesson,.explorer,.gcard,.offer,.col.dark,footer,.portrait{--fg:#ffffff;--mut:#b3a89d;--dim:#8a7e73;--line:#2b1e15;--line2:#3a2a1f;--surface:#1c140e;--surface2:#22180f;color:var(--fg)}
+@media (prefers-reduced-motion:reduce){.paper:before,.paper:after{animation:none}}
+
+
+/* FAQ em lista (acordeão) */
+.faq{display:block!important;max-width:52rem;margin:3rem auto 0;text-align:left;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line);padding:1.35rem .5rem}
+.faq summary{display:flex;gap:1rem;align-items:center;justify-content:space-between;font-size:1.08rem;font-weight:500;line-height:1.4}
+.faq summary b{color:var(--or);font-weight:600;margin-right:.6rem}
+.faq .pm{flex:none;color:var(--or);font-size:1.5rem;line-height:1;transition:transform .3s var(--ease)}
+.faq details[open] .pm{transform:rotate(45deg)}
+.faq details:hover summary>span:first-child{color:#fff}
+.faq details p{margin-top:.8rem;padding-left:1.6rem;font-size:.97rem;line-height:1.7;color:var(--mut);animation:soft-in .5s var(--ease) both}
+
+/* Fundo da página Sobre da Sinnu, versão escura: manchas desfocadas fixas na tela */
+body{background:#120b07}
+.bgfx{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
+.bgfx span{position:absolute;border-radius:999px}
+.bgfx .b1{left:-6rem;top:6%;width:24rem;height:24rem;background:rgba(255,122,26,.42);filter:blur(70px);animation:float 6s ease-in-out infinite}
+.bgfx .b2{right:-8%;top:30%;width:29rem;height:29rem;background:rgba(110,100,255,.26);filter:blur(90px);animation:breathe 4s ease-in-out infinite alternate}
+.bgfx .b3{left:18%;bottom:10%;width:21rem;height:21rem;background:rgba(255,150,60,.3);filter:blur(80px);animation:float 7s ease-in-out infinite reverse}
+@media (min-width:1024px){.bgfx .b1{width:30rem;height:30rem}.bgfx .b2{width:36rem;height:36rem}.bgfx .b3{width:26rem;height:26rem}}
+.grid-bg{background:transparent!important}
+.hero:before{display:none}
+/* seções brancas: creme com as mesmas manchas, opacas por cima do fundo */
+.paper{background:#faf6f1!important}
+.paper:before{left:-6rem;top:6%;width:24rem;height:24rem;background:rgba(255,122,26,.4);filter:blur(70px)}
+.paper:after{right:-8%;top:30%;bottom:auto;width:29rem;height:29rem;background:rgba(110,100,255,.2);filter:blur(90px)}
+@media (prefers-reduced-motion:reduce){.bgfx span{animation:none}}
+
+/* brilhos mais suaves, sem lilás */
+.bgfx .b1{background:rgba(255,122,26,.2)}
+.bgfx .b2{display:none}
+.bgfx .b3{background:rgba(255,150,60,.13)}
+.paper:before{background:rgba(255,122,26,.2)}
+.paper:after{display:none}
+
+/* Cards de aula em formato de vídeo */
+.lessons{gap:1.25rem}
+.lesson{min-height:0!important;display:block!important;padding:0!important;background:#1a120c!important;border:1px solid var(--line);border-radius:1.25rem;overflow:hidden;box-shadow:none!important;transition:transform .4s var(--ease),border-color .4s}
+.lesson:hover{transform:translateY(-5px);border-color:rgba(255,122,26,.45)}
+.thumb{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#221b15 0%,#15110e 60%,#1d140c 100%);border-bottom:1px solid var(--line);display:grid;place-items:center;overflow:hidden}
+.thumb:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff08 1px,#0000 1px),linear-gradient(90deg,#ffffff08 1px,#0000 1px);background-size:28px 28px;-webkit-mask-image:radial-gradient(circle at 50% 50%,#000,transparent 75%);mask-image:radial-gradient(circle at 50% 50%,#000,transparent 75%)}
+.thumb .play{position:relative;display:grid;place-items:center;width:3.6rem;height:3.6rem;border-radius:999px;background:var(--or);color:#120b07;box-shadow:0 0 0 8px rgba(255,122,26,.12);transition:transform .35s var(--ease),box-shadow .35s}
+.thumb .play svg{width:1.4rem;height:1.4rem;margin-left:.15rem}
+.lesson:hover .play{transform:scale(1.08);box-shadow:0 0 0 12px rgba(255,122,26,.14)}
+.chip-l{position:absolute;top:.8rem;left:.8rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--fg);background:rgba(18,11,7,.7);border:1px solid var(--line2);border-radius:999px;padding:.25rem .6rem}
+.dur{position:absolute;bottom:.8rem;right:.8rem;display:inline-flex;align-items:center;gap:.35rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:var(--fg);background:rgba(18,11,7,.7);border-radius:.4rem;padding:.2rem .5rem}
+.dur:before{content:"";width:.4rem;height:.4rem;border-radius:999px;background:#ff3b30}
+.lbody{padding:1.2rem 1.25rem 1.35rem;text-align:left}
+.lbody h3{font-family:var(--sans)!important;font-weight:600!important;font-size:1.05rem!important;line-height:1.4!important;color:var(--fg)}
+.lbody p{margin-top:.5rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+
+/* O que você recebe + oferta (Vibehub + oferta antiga do IA Club) */
+.buy{display:grid;gap:2rem;margin-top:3rem;align-items:center}
+@media (min-width:980px){.buy{grid-template-columns:1fr 1fr;gap:3rem}}
+.pills-list{display:grid;gap:.85rem}
+.pills-list li{display:flex;gap:1rem;align-items:center;border:1px solid var(--line2);background:#1a120c;border-radius:999px;padding:1rem 1.6rem 1rem 1.1rem}
+.pills-list li b{display:block;font-size:1.02rem;font-weight:600}
+.pills-list li span:not(.plus){display:block;margin-top:.15rem;font-size:.86rem;line-height:1.45;color:var(--mut)}
+@media (max-width:639px){.pills-list li{border-radius:1.4rem;align-items:flex-start}}
+.plus{flex:none;display:grid;place-items:center;width:2rem;height:2rem;border-radius:999px;background:var(--or);color:#120b07}
+.plus svg{width:1rem;height:1rem}
+.price-card{--fg:#ffffff;--mut:#b3a89d;--dim:#8a7e73;--line:#2b1e15;color:var(--fg);border:1px solid #3a2a1f;border-radius:1.75rem;padding:2.25rem 1.5rem;text-align:center;background:radial-gradient(90% 60% at 50% 0%,rgba(255,122,26,.14),transparent 70%),linear-gradient(180deg,#1a1715,#1a120c);box-shadow:0 40px 90px -40px rgba(255,122,26,.45)}
+@media (min-width:640px){.price-card{padding:2.75rem 2.5rem}}
+.pc-logo{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--serif);font-style:italic;font-size:1.36rem}
+.pc-logo b{display:inline-grid;place-items:center;width:2rem;height:2rem;border-radius:.45rem;background:var(--or);color:#120b07;font-family:var(--sans);font-style:normal;font-size:.8rem;font-weight:700}
+.pc-lbl{margin-top:1.4rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--or)}
+.pc-stack{margin-top:.9rem;text-align:left}
+.pc-stack li{display:flex;justify-content:space-between;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.pc-stack .v{flex:none;color:var(--mut)}
+.pc-stack .tot{border-bottom:0;font-weight:600}
+.pc-stack .tot s{color:var(--mut);text-decoration-color:var(--or);text-decoration-thickness:2px}
+.pc-today{margin-top:1.4rem;font-size:.95rem;color:var(--mut)}
+.pc-today s{text-decoration-color:#e5484d;color:#e5484d}
+.pc-price{margin-top:.4rem;font-family:var(--serif);line-height:1;white-space:nowrap;font-size:clamp(2.88rem,13.6vw,4.32rem);letter-spacing:-.03em}
+.pc-price .x{color:var(--fg)}.pc-price .v{color:var(--or)}
+.price-card .btn{margin-top:1.6rem}
+.pc-day{margin-top:1rem;font-size:.85rem;line-height:1.55;color:var(--dim)}
+.pc-guar{margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.pc-guar b{display:block;font-family:var(--serif);font-weight:400;font-size:1.12rem}
+.pc-guar span{display:block;margin-top:.3rem;font-size:.86rem;color:var(--mut)}
+
+/* O que você recebe: cards com tela do Club (Vibehub) */
+.hubs{display:grid;gap:1.25rem;margin-top:3rem;text-align:left}
+@media (min-width:900px){.hubs{grid-template-columns:1fr 1fr}}
+.hub{border:1px solid #2b1e15;background:#1a120c;border-radius:1.5rem;padding:1.1rem 1.1rem 1.6rem;transition:border-color .4s}
+.hub:hover{border-color:rgba(255,122,26,.4)}
+.hub h3{margin:1.3rem .4rem 0;display:flex;align-items:center;gap:.6rem;font-family:var(--serif);font-weight:400;font-size:1.6rem;line-height:1;color:var(--or)}
+.hub h3 svg{width:1.4rem;height:1.4rem;flex:none}
+.hub p{margin:.7rem .4rem 0;font-size:.98rem;line-height:1.65;color:#b3a89d}
+.app{border:1px solid #2b1e15;border-radius:1rem;overflow:hidden;background:#140d09;color:#ffffff}
+.app-bar{display:flex;align-items:center;gap:.35rem;padding:.5rem .7rem;border-bottom:1px solid #241912}
+.app-bar i{width:.45rem;height:.45rem;border-radius:999px;background:#3a2a1f}
+.app-bar span{margin:0 auto;font-family:var(--mono);font-size:.62rem;color:#8a7e73;background:#1a120c;border-radius:.4rem;padding:.12rem .7rem}
+.app-top{display:flex;align-items:center;gap:.6rem;padding:.55rem .8rem;border-bottom:1px solid #241912}
+.app-logo{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--serif);font-style:italic;font-size:0.76rem}
+.app-logo b{display:inline-grid;place-items:center;width:1.15rem;height:1.15rem;border-radius:.3rem;background:var(--or);color:#120b07;font-family:var(--sans);font-style:normal;font-size:.48rem;font-weight:700}
+.app-search{flex:1;max-width:12rem;margin:0 auto;font-size:.65rem;color:#8a7e73;border:1px solid #2b1e15;border-radius:.4rem;padding:.2rem .5rem}
+.app-av{display:grid;place-items:center;width:1.4rem;height:1.4rem;border-radius:999px;background:var(--or);color:#120b07;font-size:.5rem;font-weight:700}
+.app-main{position:relative;height:15.5rem;padding:.9rem;overflow:hidden}
+.m-live{display:flex;gap:.8rem;align-items:center;border:1px solid #2b1e15;border-radius:.8rem;padding:.6rem;background:radial-gradient(70% 90% at 90% 0%,rgba(255,122,26,.18),transparent 70%),#1c140e}
+.m-live img{width:4.2rem;height:4.2rem;object-fit:cover;border-radius:.6rem;filter:grayscale(1)}
+.m-badge{display:inline-flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(255,122,26,.5);border-radius:999px;padding:.1rem .45rem}
+.m-badge i{width:.35rem;height:.35rem;border-radius:999px;background:#ff3b30}
+.m-t{margin-top:.35rem;font-family:var(--serif);font-size:0.92rem;line-height:1}
+.m-s{margin-top:.25rem;font-size:.66rem;color:#b3a89d}
+.m-list{margin-top:.7rem;display:grid;gap:.4rem}
+.m-list li{display:flex;gap:.55rem;align-items:center;font-size:.7rem;border:1px solid #241912;border-radius:.55rem;padding:.45rem .55rem;background:#1a120c}
+.m-list span{font-family:var(--mono);color:var(--or);font-size:.62rem}
+.m-h{font-family:var(--serif);font-size:0.88rem}
+.m-grid{margin-top:.6rem;display:grid;grid-template-columns:1fr 1fr;gap:.55rem}
+.m-vid{position:relative;aspect-ratio:16/9;border-radius:.6rem;overflow:hidden;border:1px solid #2b1e15;background:linear-gradient(135deg,#231b14,#1a120c);display:flex;align-items:flex-end;padding:.45rem}
+.m-vid b{position:relative;font-size:.62rem;font-weight:600;line-height:1.2}
+.m-play{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);width:1.6rem;height:1.6rem;border-radius:999px;background:var(--or)}
+.m-play:after{content:"";position:absolute;left:55%;top:50%;transform:translate(-50%,-50%);border-left:.45rem solid #120b07;border-top:.3rem solid transparent;border-bottom:.3rem solid transparent}
+.m-lock{filter:blur(.5px);opacity:.7}
+.m-lk{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);display:grid;place-items:center;width:1.7rem;height:1.7rem;border-radius:999px;border:1px solid rgba(255,122,26,.55);color:var(--or)}
+.m-lk svg{width:.85rem;height:.85rem}
+.m-feed{margin-top:.6rem;display:grid;gap:.55rem;filter:blur(2px)}
+.m-post{display:flex;gap:.6rem;border:1px solid #241912;border-radius:.6rem;padding:.6rem;background:#1a120c}
+.m-dot{flex:none;width:1.5rem;height:1.5rem;border-radius:999px;background:#3a2b1f}
+.m-post div{flex:1;display:grid;gap:.35rem}
+.m-post i{display:block;height:.45rem;border-radius:999px;background:#2b1e15}
+.m-over{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;font-size:.75rem;color:#b3a89d;background:radial-gradient(circle,rgba(13,12,11,.3),rgba(13,12,11,.8))}
+.m-over .m-lk{position:static;transform:none}
+.m-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left top}
+
+/* Garantia: selo girando + passos */
+.seal2{position:relative;width:12.5rem;height:12.5rem;margin:0 auto}
+.seal2 .ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 22s linear infinite}
+.seal2 .ring text{font-family:var(--mono);font-size:12.5px;letter-spacing:3.4px;fill:#c2410c}
+@keyframes spin{to{transform:rotate(360deg)}}
+.seal2 .core{position:absolute;inset:2.4rem;border-radius:999px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#120b07;color:#ffffff;box-shadow:0 24px 50px -20px rgba(230,92,0,.55),inset 0 0 0 1px rgba(255,122,26,.35)}
+.seal2 .core b{font-family:var(--serif);font-weight:400;font-size:3.52rem;line-height:.8;color:var(--or)}
+.seal2 .core span{margin-top:.35rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase}
+.gsteps{display:grid;gap:.8rem;margin-top:2.5rem;text-align:left}
+@media (min-width:760px){.gsteps{grid-template-columns:repeat(3,1fr)}}
+.gsteps div{border-top:2px solid #120b07;padding-top:1rem}
+.gsteps span{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:#c2410c}
+.gsteps b{display:block;margin-top:.35rem;font-family:var(--serif);font-weight:400;font-size:1.28rem;line-height:1.05;color:#120b07}
+.gsteps p{margin-top:.4rem;font-size:.92rem;line-height:1.55;color:#5c5047}
+.gend{margin-top:2.2rem;font-family:var(--serif);font-style:italic;font-size:1.44rem;color:#120b07}
+@media (prefers-reduced-motion:reduce){.seal2 .ring{animation:none}}
+
+/* Duas garantias */
+.g2{display:grid;gap:1.25rem;margin-top:3rem;text-align:left;align-items:stretch}
+@media (min-width:900px){.g2{grid-template-columns:1.35fr 1fr}}
+.g-main{position:relative;overflow:hidden;border-radius:1.75rem;padding:2.25rem 1.75rem;background:#120b07;color:#ffffff;box-shadow:0 40px 80px -40px rgba(230,92,0,.6)}
+.g-main:before{content:"";position:absolute;right:-20%;top:-30%;width:70%;height:90%;background:radial-gradient(circle,rgba(255,122,26,.28),transparent 65%);pointer-events:none}
+@media (min-width:640px){.g-main{padding:2.75rem 2.5rem}}
+.g-main .seal2{margin:0 0 1.5rem;width:9.5rem;height:9.5rem}
+.g-main .seal2 .core{inset:1.8rem;background:var(--or);color:#120b07;box-shadow:0 18px 40px -14px rgba(255,122,26,.8)}
+.g-main .seal2 .core b{color:#120b07;font-size:3.4rem}
+.g-main .seal2 .ring text{fill:#ffb27a}
+.g-k{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#ffb27a}
+.g-main h3,.g-sec h3{margin-top:.5rem;font-family:var(--serif);font-weight:400;font-size:1.92rem;line-height:1}
+@media (min-width:640px){.g-main h3{font-size:2.4rem}}
+.g-main h3 em{font-style:italic;color:var(--or)}
+.g-t{margin-top:.9rem;font-size:1rem;line-height:1.7;color:#b3a89d}
+.g-list{margin-top:1.3rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.g-list li{display:inline-flex;align-items:center;gap:.45rem;border:1px solid rgba(255,122,26,.4);border-radius:999px;padding:.4rem .85rem;font-size:.85rem}
+.g-list li:before{content:"✓";color:var(--or);font-weight:700}
+.g-sec{border-radius:1.75rem;padding:2.25rem 1.75rem;background:rgba(255,255,255,.8);border:1px solid #e9e1d8;display:flex;flex-direction:column;justify-content:center}
+@media (min-width:640px){.g-sec{padding:2.75rem 2.5rem}}
+.g-sec .g-k{color:#c2410c}
+.g-sec h3{color:#120b07}
+.g-sec h3 em{font-style:italic;color:#c2410c}
+.g-sec .g-t{color:#5c5047}
+.g-badge{display:inline-flex;align-items:baseline;gap:.4rem;margin-bottom:1.2rem}
+.g-badge b{font-family:var(--serif);font-weight:400;font-size:3.68rem;line-height:.8;color:#120b07}
+.g-badge span{font-family:var(--mono);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:#c2410c}
+
+/* ===== Cofre de Prompts ===== */
+.hero-shot{border:1px solid #2b1e15;border-radius:1.1rem;overflow:hidden;background:#140d09;box-shadow:0 40px 90px -35px rgba(255,122,26,.5);animation:float-3d 7s ease-in-out infinite}
+.hero-shot .app-bar{display:flex;align-items:center;gap:.35rem;padding:.55rem .75rem;border-bottom:1px solid #241912}
+.hero-shot .app-bar i{width:.45rem;height:.45rem;border-radius:999px;background:#3a2a1f}
+.hero-shot .app-bar span{margin:0 auto;font-family:var(--mono);font-size:.62rem;color:#8a7e73;background:#1a120c;border-radius:.4rem;padding:.12rem .7rem}
+.hero-shot img{display:block;width:100%;height:auto}
+.chats{display:grid;gap:1rem;margin-top:3rem;text-align:left}
+@media (min-width:880px){.chats{grid-template-columns:1fr 1fr}}
+.chat{border-radius:1.4rem;padding:1.4rem;border:1px solid #e9e1d8;background:rgba(255,255,255,.85)}
+.chat.good{background:#120b07;color:#ffffff;border-color:#120b07;box-shadow:0 30px 70px -35px rgba(255,122,26,.6)}
+.chat-h{display:flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#8a7e73}
+.chat.good .chat-h{color:#ffb27a}
+.chat-h i{width:.55rem;height:.55rem;border-radius:999px;background:#e5484d}
+.chat.good .chat-h i{background:var(--or)}
+.msg{margin-top:1rem;max-width:92%;border-radius:1rem;padding:.8rem 1rem;font-size:.92rem;line-height:1.55}
+.msg.you{margin-left:auto;background:#120b07;color:#ffffff;border-bottom-right-radius:.3rem}
+.chat.good .msg.you{background:var(--or);color:#120b07}
+.msg.ai{background:#f3ece4;color:#5c5047;border-bottom-left-radius:.3rem}
+.chat.good .msg.ai{background:#1f1d1b;color:#e9e1d8}
+.msg small{display:block;margin-bottom:.3rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.msg .pr{font-family:var(--mono);font-size:.8rem;line-height:1.55}
+.msg.bad-out{font-style:italic}
+.verdict{margin-top:1rem;font-size:.82rem;font-weight:600}
+.chat .verdict{color:#e5484d}.chat.good .verdict{color:#3fcf8e}
+.used{display:grid;gap:1rem;margin-top:2.75rem;text-align:left}
+@media (min-width:860px){.used{grid-template-columns:repeat(3,1fr)}}
+.used article{border:1px solid #2b1e15;background:#1a120c;border-radius:1.25rem;padding:1.5rem}
+.used .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--or)}
+.used h3{margin-top:.5rem;font-family:var(--serif);font-weight:400;font-size:1.52rem;line-height:1}
+.used p{margin-top:.6rem;font-size:.92rem;line-height:1.6;color:#b3a89d}
+.steps4b{display:grid;gap:1rem;margin-top:3rem;text-align:left}
+@media (min-width:860px){.steps4b{grid-template-columns:repeat(4,1fr)}}
+.steps4b div{border-top:2px solid var(--or);padding-top:1rem}
+.steps4b span{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--or)}
+.steps4b b{display:block;margin-top:.3rem;font-family:var(--serif);font-weight:400;font-size:1.76rem;line-height:1}
+.steps4b p{margin-top:.4rem;font-size:.9rem;color:#b3a89d}
+.shots{display:grid;gap:1rem;margin-top:2.75rem}
+@media (min-width:860px){.shots{grid-template-columns:1fr 1fr}}
+.shots .hero-shot{animation:none}
+.shots .hero-shot.in{animation:soft-in .9s var(--ease) both}
+@media (min-width:960px){.hero .hero-grid{grid-template-columns:1fr 1.05fr}}
+.hero .h1{font-size:2.8rem}
+@media (min-width:640px){.hero .h1{font-size:4rem}}
+@media (min-width:1100px){.hero .h1{font-size:4.6rem}}
+.isso{margin-top:2.5rem;font-family:var(--serif);font-style:italic;font-size:2.4rem;color:var(--or)}
+.tasks{display:grid;gap:1rem;margin-top:3rem;text-align:left}
+@media (min-width:640px){.tasks{grid-template-columns:1fr 1fr}}
+@media (min-width:1024px){.tasks{grid-template-columns:repeat(4,1fr)}}
+.task{border:1px solid #2b1e15;background:#1a120c;border-radius:1.2rem;padding:1.35rem;transition:border-color .35s,transform .35s var(--ease)}
+.task:hover{border-color:rgba(255,122,26,.45);transform:translateY(-3px)}
+.t-ico{display:grid;place-items:center;width:2.6rem;height:2.6rem;border-radius:.75rem;background:linear-gradient(135deg,#ffb27a,#c2410c);color:#120b07}
+.t-ico svg{width:1.2rem;height:1.2rem}
+.task h3{margin-top:1rem;font-family:var(--serif);font-weight:400;font-size:1.24rem;line-height:1.05}
+.task p{margin-top:.45rem;font-size:.88rem;line-height:1.55;color:#b3a89d}
+.depth{margin-top:2rem;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:#b3a89d}
+.depth b{color:var(--or);font-weight:500}
+.qual{max-width:44rem;margin:2.5rem auto 0;text-align:left;border-radius:1.5rem;background:rgba(255,255,255,.85);border:1px solid #e9e1d8;padding:1rem 1.6rem}
+.qual li{display:flex;gap:.8rem;align-items:flex-start;padding:1rem 0;border-bottom:1px solid #e9e1d8;font-size:1.02rem;line-height:1.5}
+.qual li:last-child{border-bottom:0}
+.qual li svg{flex:none;width:1.2rem;height:1.2rem;margin-top:.15rem;color:#c2410c}
+.offer2{max-width:36rem;margin:2.5rem auto 0;border:1px solid rgba(255,122,26,.55);border-radius:1.75rem;background:linear-gradient(180deg,#1c1a18,#1a120c);padding:2.25rem 1.5rem;text-align:center;box-shadow:0 50px 110px -40px rgba(255,122,26,.6)}
+@media (min-width:640px){.offer2{padding:2.75rem 2.5rem}}
+.offer2 ul{text-align:left;border-top:1px solid #2b1e15}
+.offer2 li{display:flex;gap:.7rem;padding:.85rem 0;border-bottom:1px solid #2b1e15;font-size:.97rem}
+.offer2 li:before{content:"✓";color:var(--or);font-weight:700}
+.offer2 .val{margin-top:1.5rem;font-family:var(--serif);font-size:clamp(2.88rem,13.6vw,4.32rem);line-height:1;color:var(--or)}
+.offer2 .per{margin-top:.4rem;font-size:.92rem;color:#b3a89d}
+.offer2 .btn{margin-top:1.6rem}
+.offer2 .pay{margin-top:1rem;font-size:.8rem;color:#8a7e73}
+
+/* ===== Cofre v3 ===== */
+.hero .wrap{display:block}
+.hero-h{max-width:58rem;margin:0 auto}
+.hero-sub{max-width:44rem;margin:1.4rem auto 0}
+.hero .hero-trail{margin-top:1rem}
+
+/* Demo do produto (cursor clicando, inspirado na LP da Nura) */
+.demo{max-width:64rem;margin:3.25rem auto 0;text-align:left}
+.demo-win{border:1px solid #2b1e15;border-radius:1.2rem;overflow:hidden;background:#140d09;box-shadow:0 50px 110px -40px rgba(255,122,26,.5)}
+.demo-bar{display:flex;align-items:center;gap:.35rem;padding:.6rem .8rem;border-bottom:1px solid #241912}
+.demo-bar i{width:.5rem;height:.5rem;border-radius:999px;background:#3a2a1f}
+.demo-bar span{margin:0 auto;font-family:var(--mono);font-size:.66rem;color:#8a7e73;background:#1a120c;border-radius:.4rem;padding:.15rem .8rem}
+.demo-stage{position:relative;aspect-ratio:1200/685;overflow:hidden;background:#0d0d0d}
+.fr{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .35s ease}
+.fr.on{opacity:1}
+img.fr,.fr>img{width:100%;height:100%;object-fit:cover}
+.copy-btn{position:absolute;left:23.4%;top:34.9%;width:51.3%;height:6.6%;display:grid;place-items:center;border-radius:.5rem;border:1px solid #ff7a1a;background:#2a1709;color:#ffb27a;font-family:var(--sans);font-weight:700;font-size:clamp(.45rem,1.15vw,.82rem);letter-spacing:.12em;text-transform:uppercase;transition:opacity .2s}
+.copy-btn.done{opacity:0}
+.ring{position:absolute;width:3.2rem;height:3.2rem;margin:-1.6rem 0 0 -1.6rem;border-radius:999px;border:2px solid var(--or);opacity:0;pointer-events:none}
+.ring.go{animation:ringgo .55s ease-out}
+@keyframes ringgo{from{opacity:.95;transform:scale(.5)}to{opacity:0;transform:scale(1.4)}}
+.cursor{position:absolute;left:46%;top:60%;z-index:5;pointer-events:none;transition:left .95s cubic-bezier(.22,1,.36,1),top .95s cubic-bezier(.22,1,.36,1);filter:drop-shadow(0 2px 5px rgba(0,0,0,.45))}
+.cursor svg{transition:transform .12s}
+.cursor.click svg{transform:scale(.84)}
+.demo-cap{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem 1rem;margin-top:1rem}
+.steps-mini{display:flex;flex-wrap:wrap;gap:.35rem;list-style:none;margin:0;padding:0}
+.steps-mini li{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:.28rem .7rem;background:#22180f;color:#8a7e73;transition:background-color .3s,color .3s}
+.steps-mini li.on{background:var(--or);color:#120b07}
+.steps-mini li.done{background:#2b1e15;color:#b3a89d}
+.demo-cap p{flex:1;min-width:14rem;font-size:.95rem;color:#b3a89d}
+.pause{display:grid;place-items:center;width:2.2rem;height:2.2rem;border-radius:999px;border:1px solid #3a2a1f;color:#b3a89d}
+.pause svg{width:.8rem;height:.8rem}
+
+/* Interface no estilo do ChatGPT (modo escuro) */
+.gpt,.gpt-card{background:#212121;color:#ececec;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;display:flex;flex-direction:column}
+.gpt-top{display:flex;align-items:center;gap:.3rem;padding:.7rem 1rem;font-size:.95rem;font-weight:600;color:#ececec}
+.gpt-top svg{width:.9rem;height:.9rem;color:#9b9b9b}
+.gpt-body{flex:1;display:flex;flex-direction:column;gap:1rem;padding:.5rem 9% 1rem;overflow:hidden}
+.gpt-empty{margin:auto;font-size:clamp(.9rem,2.2vw,1.6rem);font-weight:500;color:#ececec;transition:opacity .25s}
+.gpt-empty.hide{display:none}
+.gpt-user{display:none;align-self:flex-end;max-width:72%;background:#303030;border-radius:1.15rem;padding:.65rem .95rem;font-size:.92rem;line-height:1.5}
+.gpt-user.show{display:block}
+.gpt-ai{display:none;font-size:.92rem;line-height:1.6;color:#ececec}
+.gpt-ai.show{display:block}
+.gpt-ai p+p{margin-top:.55rem}
+.gpt-ai b{font-weight:600}
+.blur-lines{display:grid;gap:.45rem;min-width:13rem;filter:blur(3px)}
+.blur-lines i{display:block;height:.55rem;border-radius:999px;background:#8a8a8a}
+.lock-chip{display:inline-flex;margin-top:.6rem;font-size:.7rem;font-weight:600;letter-spacing:.04em;color:#ffb27a;border:1px solid rgba(255,122,26,.5);border-radius:999px;padding:.15rem .55rem}
+.gpt-input{display:flex;align-items:center;gap:.6rem;margin:0 9% 1.1rem;background:#303030;border-radius:1.6rem;padding:.55rem .6rem .55rem 1rem;color:#9b9b9b;font-size:.92rem}
+.gpt-plus{font-size:1.2rem;line-height:1}
+.gpt-ph{flex:1}
+.gpt-paste{flex:1;display:none;gap:.35rem;filter:blur(2.5px)}
+.gpt-paste i{display:block;height:.45rem;border-radius:999px;background:#9b9b9b}
+.gpt-paste i:first-child{width:70%}.gpt-paste i:last-child{width:45%}
+.gpt-input.pasted .gpt-ph{display:none}
+.gpt-input.pasted .gpt-paste{display:grid}
+.gpt-send{display:grid;place-items:center;width:2rem;height:2rem;border-radius:999px;background:#676767;color:#212121;flex:none}
+.gpt-input.pasted .gpt-send{background:#ececec}
+.gpt-send svg{width:1rem;height:1rem}
+.gpt .gpt-user,.gpt .gpt-ai{font-size:clamp(.55rem,1.25vw,.92rem)}
+
+/* Familiar */
+.pains2{margin-top:2.5rem;text-align:left;display:grid;gap:0;border-top:1px solid #e9e1d8}
+.pains2 li{position:relative;padding:1.3rem 0 1.3rem 2.4rem;border-bottom:1px solid #e9e1d8;font-size:1.12rem;line-height:1.55;color:#120b07}
+.pains2 li:before{content:"";position:absolute;left:0;top:1.55rem;width:1.3rem;height:1.3rem;border-radius:999px;border:2px solid #c2410c;background:radial-gradient(circle,#c2410c 35%,transparent 40%)}
+.you{margin-top:2.25rem;font-family:var(--serif);font-size:1.6rem;line-height:1.15;color:#120b07}
+.you em{font-style:italic;color:#c2410c}
+.grid-bg .you em{color:var(--or)}
+
+/* Case */
+.statrow2{display:grid;gap:1rem;margin-top:2.75rem}
+@media (min-width:760px){.statrow2{grid-template-columns:repeat(3,1fr)}}
+.statrow2 div{border:1px solid #2b1e15;background:#1a120c;border-radius:1.25rem;padding:1.6rem 1rem}
+.statrow2 b{display:block;font-family:var(--serif);font-weight:400;font-size:2.24rem;line-height:1;color:var(--or)}
+.statrow2 span{display:block;margin-top:.5rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#b3a89d}
+
+/* Antes × depois */
+.ba{display:grid;gap:1.25rem;margin-top:3rem;text-align:left}
+@media (min-width:900px){.ba{grid-template-columns:1fr 1fr}}
+.ba-k{margin-bottom:.8rem;font-family:var(--serif);font-size:1.28rem}
+.ba-k.bad{color:#b3a89d}.ba-k.good{color:var(--or)}
+.gpt-card{border-radius:1.1rem;overflow:hidden;border:1px solid #333;min-height:22rem}
+.ba-col:last-child .gpt-card{border-color:rgba(255,122,26,.55);box-shadow:0 40px 90px -40px rgba(255,122,26,.55)}
+.ba-v{margin-top:.9rem;font-size:.95rem}
+.ba-v.bad{color:#e5484d}.ba-v.good{color:#3fcf8e}
+
+/* Compatibilidade */
+.ais{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-top:2.25rem}
+.ais span{border:1px solid #d9cfc4;background:#fff;border-radius:999px;padding:.6rem 1.1rem;font-weight:600;color:#120b07}
+
+/* Não é pra você */
+.notfor2{margin-top:2.5rem;text-align:left;border-top:1px solid #2b1e15}
+.notfor2 li{display:flex;gap:1rem;padding:1.2rem 0;border-bottom:1px solid #2b1e15;font-size:1.08rem;color:#e9e1d8}
+.notfor2 li span{flex:none;display:grid;place-items:center;width:1.6rem;height:1.6rem;border-radius:999px;background:rgba(229,72,77,.15);color:#e5484d;font-size:.8rem}
+
+/* O que R$27,90 compra */
+.buys{display:grid;gap:1rem;margin-top:3rem}
+@media (min-width:760px){.buys{grid-template-columns:repeat(3,1fr)}}
+.buys div{background:rgba(255,255,255,.85);border:1px solid #e9e1d8;border-radius:1.25rem;padding:1.6rem 1.2rem}
+.b-ico{font-size:2rem}
+.buys b{display:block;margin-top:.6rem;font-family:var(--serif);font-weight:400;font-size:1.28rem;color:#120b07}
+.buys p{margin-top:.3rem;font-size:.9rem;color:#8a7e73}
+.vs{margin-top:2.75rem;font-family:var(--serif);font-size:1.84rem;line-height:1.1;color:#120b07}
+@media (min-width:640px){.vs{font-size:2.4rem}}
+.vs em{font-style:italic;color:#c2410c}
+
+/* Planos */
+.plans2{display:grid;gap:1.25rem;margin-top:3rem;text-align:left;align-items:stretch}
+@media (min-width:900px){.plans2{grid-template-columns:1fr 1fr;max-width:62rem;margin-left:auto;margin-right:auto}}
+.plan2{position:relative;display:flex;flex-direction:column;border:1px solid #2b1e15;background:#1a120c;border-radius:1.6rem;padding:2rem 1.6rem}
+.plan2.best{border-color:rgba(255,122,26,.6);background:linear-gradient(180deg,#1d1610,#1a120c);box-shadow:0 50px 110px -40px rgba(255,122,26,.6)}
+.p-badge{position:absolute;top:-.8rem;left:1.6rem;background:var(--or);color:#120b07;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:.3rem .8rem}
+.p-name{font-family:var(--serif);font-size:1.52rem;line-height:1.05}
+.plan2 ul{margin-top:1.2rem;flex:1}
+.plan2 li{display:flex;gap:.6rem;padding:.55rem 0;font-size:.93rem;color:#e9e1d8}
+.plan2 li:before{content:"✓";color:var(--or);font-weight:700}
+.p-old{margin-top:1.2rem;font-size:.92rem;color:#b3a89d}
+.p-old s{color:#e5484d}
+.p-price{margin-top:.4rem;font-family:var(--serif);font-size:3.04rem;line-height:1;color:var(--or)}
+.plan2:not(.best) .p-price{margin-top:1.2rem;color:#ffffff}
+.p-per{margin-top:.3rem;font-size:.85rem;color:#b3a89d}
+.plan2 .btn{margin-top:1.4rem}
+.btn-ghost2{background:transparent;color:#ffffff;box-shadow:inset 0 0 0 1px #3a2a1f}
+.btn-ghost2:hover{background:#ffffff0d}
+
+/* Selo da garantia (sem conflito com .ring do cursor) */
+.seal2 .ring2{position:absolute;inset:0;width:100%;height:100%;animation:spin 22s linear infinite}
+.seal2 .ring2 text{font-family:var(--mono);font-size:12.5px;letter-spacing:3.4px;fill:#c2410c}
+
+@media (prefers-reduced-motion:reduce){.cursor{transition:none}.seal2 .ring2{animation:none}}
+.hero.center,.hero.center .hero-h,.hero.center .hero-sub{text-align:center}
+.hero.center .hero-h{margin:0 auto}
+.hero.center .hero-sub{margin:1.4rem auto 0}
+
+/* ===== v4 ===== */
+/* Bento "familiar" */
+.bento{display:grid;gap:1rem;margin-top:3rem;text-align:left}
+@media (min-width:900px){.bento{grid-template-columns:repeat(3,1fr)}.bx-wide{grid-column:span 2}}
+.bx{border:1px solid #2b1e15;background:#1a120c;border-radius:1.4rem;padding:1.1rem 1.1rem 1.5rem}
+.bx h3{margin:1.2rem .3rem 0;font-family:var(--serif);font-weight:400;font-size:1.4rem;line-height:1.05}
+.bx > p{margin:.4rem .3rem 0;font-size:.92rem;color:#b3a89d}
+.mini{border:1px solid #2b1e15;border-radius:1rem;background:#0b0a09;padding:1rem;min-height:9.5rem}
+.mini-h{font-size:.8rem;font-weight:600;color:#ececec}
+.mini-h span{font-weight:400;color:#8a7e73}
+.gptmini{background:#212121;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.mini-u{margin:.7rem 0 0 auto;max-width:75%;background:#303030;color:#ececec;border-radius:1rem;padding:.5rem .8rem;font-size:.82rem;width:fit-content}
+.mini-a{margin-top:.8rem;font-size:.86rem;line-height:1.6;color:#ececec}
+.mini-a mark{background:rgba(229,72,77,.18);color:#ff8b8f;border-bottom:2px solid #e5484d;padding:0 .1rem;border-radius:.15rem}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:.35rem;margin-top:.7rem}
+.thumbs i{aspect-ratio:1/1;border-radius:.35rem;background:linear-gradient(135deg,#2b1e15,#1a120c);filter:blur(.6px)}
+.thumbs i:nth-child(2){background:linear-gradient(135deg,#3a2414,#1a120c)}.thumbs i:nth-child(5){background:linear-gradient(135deg,#1f2a33,#141212)}
+.count{margin-top:.7rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:#e5484d}
+.adsmini .metric{display:flex;justify-content:space-between;align-items:baseline;margin-top:.8rem;padding-top:.6rem;border-top:1px solid #241912}
+.adsmini .metric span{font-size:.78rem;color:#8a7e73}
+.adsmini .metric b{font-family:var(--serif);font-weight:400;font-size:1.6rem;line-height:1;color:#e5484d}
+.timermini{display:flex;flex-direction:column;justify-content:center}
+.timermini .t{font-family:var(--mono);font-size:2.4rem;letter-spacing:.04em;color:#ffffff}
+.timermini .try{margin-top:.6rem;font-size:.8rem;color:#b3a89d;border-left:2px solid #e5484d;padding-left:.6rem}
+.ideasmini ol{margin:.7rem 0 0 1.1rem;padding:0;font-size:.86rem;line-height:1.7;color:#e9e1d8}
+.ideasmini .same{margin-top:.7rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:#e5484d}
+
+/* Índice "começar do zero" */
+.index{margin-top:3rem;text-align:left;border-top:1px solid #2b1e15}
+.ix-row{display:grid;gap:.6rem 1.5rem;align-items:center;padding:1.4rem 0;border-bottom:1px solid #2b1e15}
+@media (min-width:860px){.ix-row{grid-template-columns:3rem 17rem 1fr}}
+.ix-n{font-family:var(--mono);font-size:.75rem;color:var(--or)}
+.ix-row h3{font-family:var(--serif);font-weight:400;font-size:1.6rem;line-height:1}
+.ix-tags{display:flex;flex-wrap:wrap;gap:.45rem}
+.ix-tags span{border:1px solid #2b1e15;background:#1a120c;border-radius:.5rem;padding:.4rem .7rem;font-size:.84rem;color:#e9e1d8;transition:border-color .3s,color .3s}
+.ix-row:hover .ix-tags span{border-color:rgba(255,122,26,.35)}
+.ix-row:hover h3{color:var(--or)}
+.depth{margin-top:2rem}
+
+/* Perfis */
+.profiles{margin-top:3rem;text-align:left;border-radius:1.75rem;background:#120b07;color:#ffffff;overflow:hidden;box-shadow:0 40px 90px -40px rgba(230,92,0,.5)}
+.pf-tabs{display:flex;gap:.4rem;overflow-x:auto;padding:1rem;border-bottom:1px solid #2b1e15;scrollbar-width:none}
+.pf-tabs button{flex:none;border-radius:999px;padding:.6rem 1.1rem;font-size:.9rem;font-weight:500;color:#b3a89d;border:1px solid #2b1e15;transition:background-color .3s,color .3s,border-color .3s}
+.pf-tabs button:hover{color:#ffffff}
+.pf-tabs button[aria-selected="true"]{background:var(--or);color:#120b07;border-color:var(--or)}
+.pf-body{padding:2rem 1.5rem}
+@media (min-width:768px){.pf-body{padding:2.75rem 3rem}}
+.pf-panel{display:none}
+.pf-panel.on{display:grid;gap:1.5rem;animation:soft-in .6s var(--ease) both}
+@media (min-width:900px){.pf-panel.on{grid-template-columns:1.1fr 1fr;column-gap:3rem}.pf-panel .pf-k,.pf-panel h3{grid-column:1}.pf-panel ul{grid-column:1}.pf-panel .pf-ex{grid-column:2;grid-row:1 / span 3;align-self:center}}
+.pf-k{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#ffb27a}
+.pf-panel h3{font-family:var(--serif);font-weight:400;font-size:1.92rem;line-height:1.02}
+.pf-panel ul{display:grid;gap:.7rem}
+.pf-panel li{display:flex;gap:.7rem;font-size:1rem;line-height:1.5;color:#e9e1d8}
+.pf-panel li:before{content:"✓";flex:none;color:var(--or);font-weight:700}
+.pf-ex{border:1px solid #2b1e15;background:#140d09;border-radius:1.2rem;padding:1.4rem}
+.pf-ex span{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#8a7e73;margin-bottom:.8rem}
+.pf-ex b{display:flex;align-items:center;justify-content:space-between;gap:1rem;line-height:1.4;border:1px solid #2b1e15;border-radius:.7rem;padding:.8rem 1rem;font-size:.95rem;font-weight:600;margin-top:.5rem;background:#1a120c}
+.pf-ex b:after{content:"Copiar";font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#ffb27a;border:1px solid rgba(255,122,26,.45);border-radius:.4rem;padding:.2rem .45rem}
+
+/* Recibo */
+.receipt{position:relative;max-width:30rem;margin:3rem auto 0;background:#faf6f1;color:#120b07;padding:2rem 1.75rem 2.25rem;text-align:left;font-family:var(--mono);box-shadow:0 40px 80px -30px rgba(0,0,0,.7);transform:rotate(-1.2deg)}
+.receipt:before,.receipt:after{content:"";position:absolute;left:0;right:0;height:12px;background:radial-gradient(circle at 6px 0,transparent 6px,#faf6f1 6.5px) 0 0/12px 12px repeat-x}
+.receipt:before{top:-11px;transform:rotate(180deg)}.receipt:after{bottom:-11px}
+.rc-h{text-align:center;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;padding-bottom:1rem;border-bottom:1px dashed #b3a89d}
+.rc-row{display:flex;align-items:baseline;gap:.5rem;margin-top:1rem;font-size:.92rem}
+.rc-row i{flex:1;border-bottom:1px dotted #9a9184;transform:translateY(-.25rem)}
+.rc-row b{font-weight:500}
+.rc-cut{margin-top:1.2rem;border-top:1px dashed #b3a89d}
+.rc-row.hl{font-weight:700;color:#c2410c}
+.rc-res{margin-top:1.4rem;font-family:var(--serif);font-size:1.24rem;line-height:1.1;color:#120b07}
+.rc-res em{font-style:italic;color:#c2410c}
+
+/* Guilherme com foto */
+.gm{display:grid;gap:2.5rem;align-items:center}
+@media (min-width:900px){.gm{grid-template-columns:.85fr 1.15fr;gap:4rem}}
+.gm-photo{position:relative;margin:0;border-radius:1.6rem;overflow:hidden;border:1px solid #2b1e15;box-shadow:0 50px 100px -40px rgba(255,122,26,.55)}
+.gm-photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;filter:grayscale(1) contrast(1.08)}
+.gm-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(18,11,7,.9))}
+.gm-photo figcaption{position:absolute;left:1.2rem;bottom:1.1rem;z-index:1;font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;color:#ffffff}
+.gm-txt{text-align:left}
+.gm-txt .h2{font-size:3rem}
+@media (min-width:640px){.gm-txt .h2{font-size:4.2rem}}
+.gm-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:2rem}
+.gm-stats div{border-top:2px solid var(--or);padding-top:.8rem}
+.gm-stats b{display:block;font-family:var(--serif);font-weight:400;font-size:1.76rem;line-height:1}
+.gm-stats span{display:block;margin-top:.3rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#b3a89d}
+.gm-sign{margin-top:2rem;font-family:"Mrs Saint Delafield",cursive;font-size:3.4rem;line-height:1;color:var(--or)}
+
+/* Certificado de garantia */
+.seal2 .ring2{position:absolute;inset:0;width:100%;height:100%;animation:spin 22s linear infinite}
+.seal2 .ring2 text{font-family:var(--mono);font-size:12.5px;letter-spacing:3.4px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cert{position:relative;max-width:56rem;margin:0 auto;background:#faf6f1;color:#120b07;border-radius:.5rem;padding:3rem 1.5rem 2.5rem;box-shadow:0 50px 110px -40px rgba(255,122,26,.55),0 0 0 1px #e2d9ca}
+.cert:before{content:"";position:absolute;inset:.75rem;border:1px solid #d9cfc4;outline:1px solid #d9cfc4;outline-offset:4px;pointer-events:none}
+@media (min-width:768px){.cert{padding:4rem 4rem 3rem}}
+.cert-seal{position:absolute!important;top:-3rem;right:1.5rem;width:8rem!important;height:8rem!important;margin:0!important}
+.cert-seal .core{inset:1.6rem;background:var(--or);color:#120b07;box-shadow:0 14px 30px -10px rgba(255,122,26,.8)}
+.cert-seal .core b{color:#120b07;font-size:2.8rem}
+.cert-seal .ring2 text{fill:#c2410c}
+.cert-k{font-family:var(--mono);font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;color:#8a7e73}
+.cert-t{margin-top:.8rem;font-family:var(--serif);font-weight:400;font-size:2.08rem;line-height:1}
+@media (min-width:640px){.cert-t{font-size:2.88rem}}
+.cert-t em{font-style:italic;color:#c2410c}
+.cert-sub{max-width:36rem;margin:1rem auto 0;font-size:1rem;line-height:1.65;color:#5c5047}
+.cert-terms{display:grid;gap:1rem;margin-top:2.5rem;text-align:left}
+@media (min-width:768px){.cert-terms{grid-template-columns:repeat(auto-fit,minmax(0,1fr))}}
+.cert-terms div{border-top:1px solid #d9cfc4;padding-top:1rem}
+.cert-terms span{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#c2410c}
+.cert-terms b{display:block;margin-top:.3rem;font-family:var(--serif);font-weight:400;font-size:1.36rem;line-height:1.05}
+.cert-terms p{margin-top:.4rem;font-size:.92rem;line-height:1.55;color:#5c5047}
+.cert-foot{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1.5rem;margin-top:2.5rem;text-align:left}
+.sig{font-family:"Mrs Saint Delafield",cursive;font-size:3.2rem;line-height:.9;color:#120b07;border-bottom:1px solid #120b07;padding:0 1.5rem .2rem 0}
+.sig-l{margin-top:.4rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7e73}
+.cert-end{font-family:var(--serif);font-style:italic;font-size:1.44rem}
+
+.imgmini{display:flex;flex-direction:column}
+.fake-photo{position:relative;flex:1;min-height:7.5rem;margin-top:.7rem;border-radius:.7rem;overflow:hidden;background:radial-gradient(60% 70% at 50% 35%,#d9b7a0 0%,#b98d76 35%,transparent 36%),linear-gradient(160deg,#4b6c8f,#8fb3d1 55%,#e7c8a8);filter:saturate(1.35) contrast(1.05)}
+.fake-photo .face{position:absolute;left:50%;bottom:-25%;transform:translateX(-50%);width:55%;height:60%;border-radius:50% 50% 0 0;background:linear-gradient(180deg,#2f3d52,#1c2433)}
+.tag-bad{position:absolute;left:.5rem;top:.5rem;font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;background:rgba(18,11,7,.8);color:#ff8b8f;border:1px solid #e5484d;border-radius:.35rem;padding:.12rem .4rem}
+.tag-bad.t2{top:auto;bottom:.5rem;left:auto;right:.5rem}
+
+.savedmini.ig{position:relative;padding:0;overflow:hidden;background:#000;height:19rem}
+.savedmini.ig img{width:100%;height:100%;object-fit:cover;object-position:top}
+.savedmini.ig:after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(180deg,transparent,rgba(0,0,0,.92))}
+.ig-count{position:absolute;left:.9rem;bottom:.8rem;z-index:1;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:#ff8b8f}
+.ai-photo{display:block;width:100%;height:11rem;object-fit:cover;object-position:center 30%;margin-top:.7rem;border-radius:.7rem}
+.grid-bg .you{color:#ffffff}
+.isso{font-size:1.76rem!important;line-height:1.1}
+@media (min-width:640px){.isso{font-size:2.24rem!important}}
+
+.obj-q{font-family:var(--serif);font-style:italic;font-size:1.92rem;line-height:1.1;max-width:46rem;margin:0 auto;color:#ffffff}
+@media (min-width:640px){.obj-q{font-size:2.88rem}}
+.obj-q em{color:var(--or)}
+.obj-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:3rem;text-align:left}
+@media (min-width:860px){.obj-stats{grid-template-columns:repeat(4,1fr)}}
+.obj-stats div{border-top:2px solid var(--or);padding-top:1rem}
+.obj-stats b{display:block;font-family:var(--serif);font-weight:400;font-size:2.08rem;line-height:1;color:#ffffff}
+.obj-stats span{display:block;margin-top:.4rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#b3a89d}
+.obj-a{margin-top:2.5rem;font-family:var(--serif);font-size:1.6rem;line-height:1.15;color:#ffffff}
+.obj-a em{font-style:italic;color:var(--or)}
+.rc-row span small{display:block;margin-top:.15rem;font-size:.68rem;letter-spacing:.06em;color:#8a7e73;font-weight:400}
+.rc-row.hl span small{color:#c2410c;font-weight:700}
+.rc-row{align-items:flex-end}
+.rc-note{margin-top:1rem;font-size:.82rem;line-height:1.55;color:#5c5047}
+
+/* Carimbo de tinta */
+.stamp{position:absolute;right:1.2rem;bottom:5.5rem;width:9.5rem;height:9.5rem;transform:rotate(-14deg);mix-blend-mode:multiply;opacity:.88;pointer-events:none}
+@media (min-width:768px){.stamp{right:3rem;bottom:4.5rem;width:11.5rem;height:11.5rem}}
+.cert.in .stamp{animation:stampin .55s cubic-bezier(.2,1.6,.4,1) .35s both}
+@keyframes stampin{0%{opacity:0;transform:rotate(-14deg) scale(1.9)}60%{opacity:.95;transform:rotate(-14deg) scale(.94)}100%{opacity:.88;transform:rotate(-14deg) scale(1)}}
+.cert-foot{position:relative;z-index:1}
+@media (prefers-reduced-motion:reduce){.cert.in .stamp{animation:none}}
+.stamp{right:auto!important;left:12.5rem;bottom:1.3rem!important;width:8.5rem!important;height:8.5rem!important;opacity:.95!important}
+@media (min-width:768px){.stamp{left:22rem!important;bottom:1.6rem!important;width:10rem!important;height:10rem!important}}
+.cert.in .stamp{animation-name:stampin2!important}
+@keyframes stampin2{0%{opacity:0;transform:rotate(-14deg) scale(1.9)}60%{opacity:1;transform:rotate(-14deg) scale(.94)}100%{opacity:.95;transform:rotate(-14deg) scale(1)}}
+.stamp{left:auto!important;right:-1.2rem!important;top:-2.6rem!important;bottom:auto!important;width:8.5rem!important;height:8.5rem!important}
+@media (min-width:768px){.stamp{right:-2rem!important;top:-3.4rem!important;width:11rem!important;height:11rem!important}}
+.cert{overflow:visible}
+
+/* v5 */
+.foot2{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem}
+.foot2 a{color:#ffffff}
+.cert-reg{text-align:right;font-family:var(--mono);font-size:.68rem;line-height:1.7;letter-spacing:.1em;text-transform:uppercase;color:#8a7e73}
+.p-note{margin-top:1rem;font-size:.82rem;line-height:1.55;color:#b3a89d;border-left:2px solid var(--or);padding-left:.8rem}
+.final{position:relative;max-width:52rem;margin:0 auto;border:1px solid rgba(255,122,26,.45);border-radius:2rem;padding:3.5rem 1.5rem 3rem;background:radial-gradient(80% 60% at 50% 0%,rgba(255,122,26,.18),transparent 70%),#1a120c;box-shadow:0 50px 110px -40px rgba(255,122,26,.55)}
+.final-photo{width:5.5rem;height:5.5rem;margin:0 auto 1.6rem;border-radius:999px;object-fit:cover;border:2px solid var(--or);filter:grayscale(1)}
+.final-q{margin:2rem 0 1rem;font-family:var(--serif);font-style:italic;font-size:1.44rem;color:var(--or)}
+/* carimbo dentro do papel, como em diploma */
+.stamp{left:auto!important;right:2rem!important;top:1.4rem!important;bottom:auto!important;width:8rem!important;height:8rem!important;transform:rotate(-12deg);opacity:.9!important}
+@media (min-width:768px){.stamp{right:2.6rem!important;top:1.8rem!important;width:10.5rem!important;height:10.5rem!important}}
+@media (max-width:767px){.cert-t{padding-right:5rem}}
+.stamp{top:auto!important;bottom:2.2rem!important;right:2.2rem!important}
+@media (min-width:768px){.stamp{bottom:2.4rem!important;right:4.5rem!important}}
+@media (max-width:767px){.cert-t{padding-right:0}.cert-foot{padding-bottom:7rem}}
+
+/* estado filtrado da biblioteca (Copywriting), em escala com o print */
+.demo-stage{container-type:inline-size}
+.lib-sel{position:absolute;left:33.1%;top:17.5%;width:25.8%;height:5%;display:flex;align-items:center;justify-content:space-between;padding:0 1.2cqw;background:#121212;border:1px solid #c9612a;border-radius:.6cqw;color:#f2f2f2;font-family:Inter,"Instrument Sans",system-ui,sans-serif;font-size:1.2cqw}
+.lib-sel span{color:#aaa}
+.lib-grid{position:absolute;left:1.9%;top:25.9%;right:3.5%;bottom:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.9cqw;padding-bottom:2cqw;background:#0b0b0b;overflow:hidden}
+.lc{position:relative;border:1px solid #262626;background:#121212;border-radius:1cqw;padding:2cqw 1.9cqw;font-family:Inter,"Instrument Sans",system-ui,sans-serif;height:19.6cqw}
+.lc-cat{display:inline-block;font-size:.78cqw;font-weight:700;letter-spacing:.04em;color:#bdbdbd;background:#2a2a2a;border-radius:.3cqw;padding:.25cqw .6cqw}
+.lc-h{position:absolute;right:1.6cqw;top:1.5cqw;display:grid;place-items:center;width:2.2cqw;height:2.2cqw;border-radius:999px;background:#1d1d1d;color:#cfcfcf;font-size:1.2cqw}
+.lc b{display:block;margin-top:1.6cqw;font-size:1.32cqw;font-weight:700;color:#fff}
+.lc p{margin-top:.9cqw;font-size:1.12cqw;line-height:1.45;color:#9a9a9a;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lc-tags{display:flex;gap:.6cqw;margin-top:1.4cqw}
+.lc-tags i{font-style:normal;font-size:.9cqw;color:#cfcfcf;background:#1e1e1e;border:1px solid #2c2c2c;border-radius:.4cqw;padding:.35cqw .7cqw}
+.lc small{display:block;margin-top:1.5cqw;font-size:.95cqw;color:#9a9a9a}
+.cert-30{display:inline-block;font-size:1.65em;line-height:.8;vertical-align:-.12em;color:#c2410c;font-style:normal;position:relative;padding:0 .05em}
+
+.plan2 .p-price{margin-top:.6rem!important}
+.plan2:not(.best) .p-price{margin-top:.9rem!important}
+.p-desc{margin-top:.8rem;font-size:.95rem;line-height:1.6;color:#e9e1d8}
+.plan2 ul{margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid #2b1e15}
+.plan2 li{padding:.6rem 0!important;line-height:1.55}
+.plan2 li b{color:#ffffff;font-weight:600}
+.plan2 li span{color:#b3a89d}
+.plan2 .p-per{margin-top:.9rem;text-align:center}
+.plan2.best .p-old{margin-top:.9rem}
+
+/* ===== Demo: modo celular ===== */
+.dv-toggle{display:flex;justify-content:center;gap:.3rem;width:max-content;margin:1.4rem auto 0;border:1px solid #3a2a1f;border-radius:999px;padding:.3rem;background:#1c140e}
+.dv-toggle button{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:#b3a89d;padding:.55rem 1rem;border-radius:999px}
+.dv-toggle button svg{width:1.05rem;height:1.05rem}
+.dv-toggle button[aria-pressed="true"]{background:var(--or);color:#120b07}
+.demo[data-device="mobile"] .demo-win{display:none}
+.phone{position:relative;width:min(19.5rem,82vw);margin:0 auto;border-radius:2.6rem;border:9px solid #26262a;background:#0b0b0b;padding-top:1.8rem;box-shadow:0 50px 110px -40px rgba(255,122,26,.5);container-type:inline-size}
+.phone[hidden]{display:none}
+.phone-notch{position:absolute;top:.55rem;left:50%;transform:translateX(-50%);width:32%;height:1.15rem;border-radius:999px;background:#26262a}
+.m-stage{position:relative;aspect-ratio:9/17.5;overflow:hidden;border-radius:0 0 1.8rem 1.8rem}
+.mfr{position:absolute;inset:0;opacity:0;transition:opacity .35s ease;background:#0b0b0b;color:#f2f2f2;font-family:Inter,"Instrument Sans",system-ui,sans-serif;text-align:left}
+.mfr.on{opacity:1}
+.m-scroll{padding:5cqw 5cqw}
+.m-dim{filter:brightness(.45)}
+.m-title{font-family:Inter,sans-serif;font-weight:900;font-size:7cqw;letter-spacing:-.02em}
+.m-sub{margin-top:1cqw;font-size:3.3cqw;color:#9a9a9a}
+.m-search{margin-top:4cqw;border:1px solid #c9612a;border-radius:2cqw;padding:2.6cqw 3cqw;font-size:3.4cqw;color:#9a9a9a}
+.m-select{margin-top:2.4cqw;display:flex;justify-content:space-between;border:1px solid #2c2c2c;background:#121212;border-radius:2cqw;padding:2.6cqw 3cqw;font-size:3.5cqw}
+.m-select span{color:#aaa}
+.mc{margin-top:3.4cqw;border:1px solid #262626;background:#121212;border-radius:3cqw;padding:4cqw}
+.mc-cat{display:inline-block;font-size:2.4cqw;font-weight:700;letter-spacing:.03em;color:#bdbdbd;background:#2a2a2a;border-radius:1cqw;padding:.8cqw 1.6cqw}
+.mc b{display:block;margin-top:2.6cqw;font-size:4.2cqw;font-weight:700}
+.mc p{margin-top:1.6cqw;font-size:3.3cqw;line-height:1.45;color:#9a9a9a}
+.mc-tags{display:flex;flex-wrap:wrap;gap:1.4cqw;margin-top:2.6cqw}
+.mc-tags i{font-style:normal;font-size:2.8cqw;color:#cfcfcf;background:#1e1e1e;border:1px solid #2c2c2c;border-radius:1.2cqw;padding:.9cqw 1.8cqw}
+.m-sheet{position:absolute;left:0;right:0;bottom:0;background:#1c1c1e;border-radius:5cqw 5cqw 0 0;padding:4cqw 0 6cqw;transform:translateY(100%);transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.mfr.on .m-sheet{transform:none}
+.m-sheet p{text-align:center;font-size:3.4cqw;font-weight:600;color:#9a9a9a;padding-bottom:2.6cqw;border-bottom:1px solid #2c2c2e}
+.m-sheet li{padding:2.6cqw 5cqw;font-size:3.7cqw;border-bottom:1px solid #2c2c2e;list-style:none}
+.m-sheet li.on{color:#ffb27a;font-weight:600}
+.m-sheet li.on:after{content:" ✓";float:right}
+.m-back{font-size:3.4cqw;color:#9a9a9a}
+.m-pcard{margin-top:4cqw;border:1px solid #262626;background:#121212;border-radius:3cqw;padding:4.5cqw}
+.m-ptitle{margin-top:2.6cqw;font-family:Inter,sans-serif;font-weight:900;font-size:5.6cqw;line-height:1.1}
+.m-ptitle.sm{margin-top:0;font-size:4cqw}
+.m-pdesc{margin-top:2cqw;font-size:3.4cqw;line-height:1.45;color:#9a9a9a}
+.m-pmeta{margin-top:2.6cqw;font-size:3cqw;color:#9a9a9a}
+.m-copy{display:block;margin-top:4cqw;text-align:center;border:1px solid #ff7a1a;background:#2a1709;color:#ffb27a;border-radius:2cqw;padding:3cqw;font-weight:800;font-size:3.6cqw;letter-spacing:.1em;text-transform:uppercase}
+.m-copy.done{background:#3a1f0c}
+.m-stars{margin-top:2cqw;font-size:5cqw;color:#9a9a9a;letter-spacing:.2em}
+.mgpt{display:flex;flex-direction:column;background:#212121;color:#ececec;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.mg-top{display:flex;justify-content:space-between;align-items:center;padding:3cqw 4.5cqw;font-size:4.2cqw}
+.mg-top b{font-weight:600}
+.mg-body{flex:1;display:flex;flex-direction:column;gap:3.5cqw;padding:2cqw 4.5cqw;overflow:hidden}
+.mg-empty{margin:auto;font-size:5.4cqw;font-weight:500}
+.mg-empty.hide{display:none}
+.mg-user{display:none;align-self:flex-end;width:78%;background:#303030;border-radius:4.5cqw;padding:3cqw 3.6cqw}
+.mg-user.show{display:block}
+.mg-user .blur-lines{min-width:0;gap:1.6cqw}
+.mg-user .blur-lines i{height:1.8cqw}
+.mg-ai{display:none;font-size:3.5cqw;line-height:1.55}
+.mg-ai.show{display:block}
+.mg-ai p+p{margin-top:2cqw}
+.mg-input{display:flex;align-items:center;gap:2.4cqw;margin:0 3.5cqw 4cqw;background:#303030;border-radius:7cqw;padding:2.4cqw 2.4cqw 2.4cqw 4cqw;font-size:3.6cqw;color:#9b9b9b}
+.mg-input em{flex:1;font-style:normal}
+.mg-paste{flex:1;display:none;gap:1.4cqw;filter:blur(2px)}
+.mg-paste i{display:block;height:1.6cqw;border-radius:999px;background:#9b9b9b}
+.mg-paste i:last-child{width:55%}
+.mg-input.pasted em{display:none}.mg-input.pasted .mg-paste{display:grid}
+.mg-input b{display:grid;place-items:center;width:8cqw;height:8cqw;border-radius:999px;background:#676767;color:#212121;font-size:4cqw}
+.mg-input.pasted b{background:#ececec}
+.tap{position:absolute;width:11cqw;height:11cqw;margin:-5.5cqw 0 0 -5.5cqw;border-radius:999px;background:rgba(255,255,255,.35);border:2px solid rgba(255,255,255,.85);opacity:0;pointer-events:none;z-index:6}
+.tap.go{animation:tapgo .6s ease-out}
+@keyframes tapgo{0%{opacity:0;transform:scale(.4)}25%{opacity:1;transform:scale(.8)}100%{opacity:0;transform:scale(1.5)}}
+
+/* ===== Manual de Marca GMIA: tipografia ===== */
+body{font-family:var(--sans)}
+.h1,.h2,.cert-t,.obj-q,.guar h2{font-weight:600;letter-spacing:-.02em}
+.h1 em,.h2 em,.cert-t em,.obj-q em{font-weight:500}
+.timermini .t,.anat-code pre,.anat-file span,.demo-bar span{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+
+/* ===== Pop-up de upsell (PREMIUM) ===== */
+.up{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:16px}
+.up[hidden]{display:none}
+.up-bg{position:absolute;inset:0;background:rgba(18,11,7,.82);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.up-box{position:relative;width:min(36rem,100%);max-height:calc(100dvh - 32px);overflow-y:auto;background:#120b07;border:1.5px solid rgba(255,122,26,.6);border-radius:1.4rem;padding:2.4rem 2rem 1.8rem;text-align:center;box-shadow:0 40px 120px -30px rgba(255,122,26,.45);animation:upin .35s cubic-bezier(.16,1,.3,1)}
+@keyframes upin{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.up-x{position:absolute;right:1rem;top:1rem;width:2.6rem;height:2.6rem;border-radius:999px;background:#2b1e15;color:#fff;font-size:1.6rem;line-height:1;display:grid;place-items:center}
+.up-x:hover{background:#3a2a1f}
+.up-k{font-family:var(--sans);font-weight:600;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--or)}
+.up-t{margin-top:.7rem;font-family:var(--serif);font-weight:600;font-size:clamp(1.6rem,5vw,2.1rem);line-height:1.1;letter-spacing:-.02em;color:#fff}
+.up-t em{color:var(--or)}
+.up-s{margin-top:.9rem;font-size:.98rem;line-height:1.6;color:#b3a89d}
+.up-price{display:flex;align-items:baseline;justify-content:center;gap:.8rem;margin-top:1.4rem}
+.up-price s{font-family:var(--serif);font-size:1.4rem;color:#8a7e73}
+.up-price b{font-family:var(--serif);font-weight:700;font-size:clamp(3.4rem,12vw,4.6rem);line-height:1;color:var(--or)}
+.up-off{margin-top:.6rem;font-size:.86rem;font-weight:600;color:#ffb27a}
+.up-only{margin-top:.3rem;font-size:.78rem;letter-spacing:.06em;color:#8a7e73}
+.up-list{list-style:none;margin:1.5rem 0 0;padding:0;text-align:left;display:grid;gap:.65rem}
+.up-list li{position:relative;padding-left:1.6rem;font-size:.93rem;line-height:1.5;color:#b3a89d}
+.up-list li:before{content:"✓";position:absolute;left:0;top:0;color:var(--or);font-weight:700}
+.up-list b{color:#fff;font-weight:600}
+.up-yes{margin-top:1.6rem}
+.up-fine{margin-top:.8rem;font-size:.76rem;color:#8a7e73}
+.up-no{display:inline-block;margin-top:1.1rem;font-size:.78rem;color:#5c5047;text-decoration:underline;text-underline-offset:3px}
+.up-no:hover{color:#8a7e73}
+body.up-open{overflow:hidden}
+@media (max-width:560px){.up-box{padding:2.2rem 1.2rem 1.4rem}}
+
+.up-coupon{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.6rem;margin-top:1.4rem;font-size:.86rem;color:#b3a89d}
+.up-code{display:inline-flex;align-items:center;gap:.6rem;border:1.5px dashed var(--or);border-radius:.6rem;background:rgba(255,122,26,.08);color:#fff;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:1rem;font-weight:700;letter-spacing:.12em;padding:.45rem .8rem;cursor:pointer}
+.up-code i{font-style:normal;font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--or)}
+.up-code.ok i{color:#3fcf8e}
+</style>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yqm6sgj6vk");
+</script>
+</head>
+<body>
+<div class="bgfx" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+
+
+<!-- HERO: headline em cima, produto embaixo -->
+<header class="hero grid-bg center">
+  <div class="wrap">
+    <h1 class="h1 hero-h rv in" style="--d:.05s">Usa los mismos prompts que ya me dejaron más de <em>R$ 100.000 de ganancia</em> en el bolsillo</h1>
+    <p class="lead hero-sub rv in" style="--d:.2s">Todos los prompts que usé y uso todos los días para construir mis 3 empresas y llevar un perfil de 0 a 150.000 seguidores en menos de 6 meses, adaptados a 20 categorías y nichos diferentes.</p>
+    <p class="hero-trail mono">Acceso inmediato · Pago único · 30 días de garantía</p>
+
+    <div class="demo rv in" style="--d:.45s" id="demo">
+      <div class="demo-win">
+        <div class="demo-bar"><i></i><i></i><i></i><span id="demoUrl">cofre de prompts</span></div>
+        <div class="demo-stage" id="stage">
+          <img class="fr on" data-k="lib" src="/img/cofre-biblioteca.jpg" width="1200" height="685" alt="Biblioteca del Cofre de Prompts" fetchpriority="high">
+          <img class="fr" data-k="cat" src="/img/cofre-categorias-copy.jpg" width="1200" height="685" alt="" loading="eager">
+          <div class="fr" data-k="libcopy"><img src="/img/cofre-biblioteca.jpg" width="1200" height="685" alt="" loading="eager"><div class="lib-sel">Prompts: Copywriting<span>⌄</span></div><div class="lib-grid"><div class="lc"><span class="lc-cat">PROMPTS: COPYWRITING</span><span class="lc-h">♡</span><b>Reescribe Sin Sonar a IA</b><p>Reescribe un texto robótico eliminando clichés y patrones típicos de los textos generados por IA.</p><div class="lc-tags"><i>escritura</i><i>humanización</i><i>edición</i><i>+1</i></div><small>⧉ 6 &nbsp; ◉ 7</small></div><div class="lc"><span class="lc-cat">PROMPTS: COPYWRITING</span><span class="lc-h">♡</span><b>Elimina Patrones de IA</b><p>Encuentra y quita guiones, listas de tres y frases hechas que delatan que fue IA.</p><div class="lc-tags"><i>escritura</i><i>revisión</i><i>copy</i><i>+1</i></div><small>⧉ 4 &nbsp; ◉ 9</small></div><div class="lc"><span class="lc-cat">PROMPTS: COPYWRITING</span><span class="lc-h">♡</span><b>Editor Humano de Élite</b><p>Revisa tu texto como un editor sénior: ritmo, claridad y el tono de quien escribe.</p><div class="lc-tags"><i>edición</i><i>tono de voz</i><i>claridad</i><i>+1</i></div><small>⧉ 3 &nbsp; ◉ 5</small></div><div class="lc"><span class="lc-cat">PROMPTS: COPYWRITING</span><span class="lc-h">♡</span><b>Voz de Experiencia Real</b><p>Reescribe con historias y detalles de quien lo vivió, no de quien lo leyó.</p><div class="lc-tags"><i>storytelling</i><i>autoridad</i><i>copy</i><i>+1</i></div><small>⧉ 2 &nbsp; ◉ 6</small></div><div class="lc"><span class="lc-cat">PROMPTS: COPYWRITING</span><span class="lc-h">♡</span><b>Gancho de Titular</b><p>Genera ganchos de apertura que hacen que la persona deje de hacer scroll y lea el resto.</p><div class="lc-tags"><i>titular</i><i>gancho</i><i>atención</i><i>+1</i></div><small>⧉ 5 &nbsp; ◉ 11</small></div><div class="lc"><span class="lc-cat">PROMPTS: COPYWRITING</span><span class="lc-h">♡</span><b>Caption Que Genera Comentarios</b><p>Escribe captions con una invitación natural a conversar en los comentarios.</p><div class="lc-tags"><i>instagram</i><i>caption</i><i>engagement</i><i>+1</i></div><small>⧉ 3 &nbsp; ◉ 8</small></div></div></div>
+          <div class="fr" data-k="prompt">
+            <img src="/img/cofre-prompt-aberto.jpg" width="1200" height="685" alt="" loading="eager">
+            <span class="copy-btn" id="copyBtn">Copiar prompt</span>
+          </div>
+          <div class="fr gpt" data-k="gpt">
+            <div class="gpt-top"><span>ChatGPT</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+            <div class="gpt-body" id="gptBody">
+              <p class="gpt-empty" id="gptEmpty">¿Por dónde empezamos?</p>
+              <div class="gpt-user" id="gptUser"><div class="blur-lines"><i style="width:96%"></i><i style="width:88%"></i><i style="width:92%"></i><i style="width:70%"></i><i style="width:84%"></i></div></div>
+              <div class="gpt-ai" id="gptAi"></div>
+            </div>
+            <div class="gpt-input" id="gptInput"><span class="gpt-plus">+</span><span class="gpt-ph" id="gptPh">Pregunta lo que quieras</span><span class="gpt-paste" id="gptPaste"><i></i><i></i></span><span class="gpt-send" id="gptSend"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span></div>
+          </div>
+          <span class="ring" id="ring"></span>
+          <div class="cursor" id="cursor" aria-hidden="true"><svg width="24" height="28" viewBox="0 0 22 26"><path d="M2 2 L2 20 L7 15.5 L10.5 23 L13.5 21.6 L10 14.2 L16.5 14 Z" fill="#181819" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        </div>
+      </div>
+      <div class="phone" id="phone" hidden>
+        <div class="phone-notch"></div>
+        <div class="m-stage" id="mstage">
+          <div class="mfr on" data-k="lib"><div class="m-scroll"><p class="m-title">COFRE DE PROMPTS</p><p class="m-sub">Biblioteca de prompts listos para copiar y usar</p><div class="m-search">⌕ Buscar por título, descripción o etiqueta...</div><div class="m-select" id=mselAll>Todas las categorías<span>⌄</span></div><div class="mc" id=mcard1><span class="mc-cat">PROMPTS: COPYWRITING</span><b>Reescribe Sin Sonar a IA</b><p>Reescribe un texto robótico eliminando clichés y patrones típicos de los textos generados por IA.</p><div class="mc-tags"><i>escritura</i><i>humanización</i><i>edición</i></div></div><div class="mc"><span class="mc-cat">SKILLS: NICHOS ESPECÍFICOS</span><b>Agency Marketing</b><p>Skill especializada para agencias de marketing que buscan optimizar su operación.</p><div class="mc-tags"><i>claude-skill</i><i>agency</i></div></div><div class="mc"><span class="mc-cat">PROMPTS: FINANZAS</span><b>Plan de Acción Financiera de 90 Días</b><p>Crea un plan semanal de 90 días con metas, hábitos e indicadores.</p><div class="mc-tags"><i>plan financiero</i><i>metas</i></div></div></div></div>
+          <div class="mfr" data-k="cat"><div class="m-scroll m-dim"><p class="m-title">COFRE DE PROMPTS</p><p class="m-sub">Biblioteca de prompts listos para copiar y usar</p><div class="m-search">⌕ Buscar por título, descripción o etiqueta...</div><div class="m-select">Todas las categorías<span>⌄</span></div><div class="mc" id=mcard1><span class="mc-cat">PROMPTS: COPYWRITING</span><b>Reescribe Sin Sonar a IA</b><p>Reescribe un texto robótico eliminando clichés y patrones típicos de los textos generados por IA.</p><div class="mc-tags"><i>escritura</i><i>humanización</i><i>edición</i></div></div><div class="mc"><span class="mc-cat">SKILLS: NICHOS ESPECÍFICOS</span><b>Agency Marketing</b><p>Skill especializada para agencias de marketing que buscan optimizar su operación.</p><div class="mc-tags"><i>claude-skill</i><i>agency</i></div></div><div class="mc"><span class="mc-cat">PROMPTS: FINANZAS</span><b>Plan de Acción Financiera de 90 Días</b><p>Crea un plan semanal de 90 días con metas, hábitos e indicadores.</p><div class="mc-tags"><i>plan financiero</i><i>metas</i></div></div></div><div class="m-sheet"><p>Categorías</p><ul><li>Todas las categorías</li><li>Prompts: Carrera y Educación</li><li>Prompts: Comunicación y Relaciones</li><li id=mpickCopy class=on>Prompts: Copywriting</li><li>Prompts: Creación de Contenido</li><li>Prompts: Estilo de Vida y Viajes</li><li>Prompts: Finanzas</li><li>Prompts: Marketing y Ventas</li><li>Prompts: Negocios y Estrategia</li><li>Prompts: Productividad y Organización</li></ul></div></div>
+          <div class="mfr" data-k="libcopy"><div class="m-scroll"><p class="m-title">COFRE DE PROMPTS</p><p class="m-sub">Biblioteca de prompts listos para copiar y usar</p><div class="m-search">⌕ Buscar por título, descripción o etiqueta...</div><div class="m-select">Prompts: Copywriting<span>⌄</span></div><div class="mc" id=mcard2><span class="mc-cat">PROMPTS: COPYWRITING</span><b>Reescribe Sin Sonar a IA</b><p>Reescribe un texto robótico eliminando clichés y patrones típicos de los textos generados por IA.</p><div class="mc-tags"><i>escritura</i><i>humanización</i><i>edición</i></div></div><div class="mc"><span class="mc-cat">PROMPTS: COPYWRITING</span><b>Elimina Patrones de IA</b><p>Encuentra y quita guiones, listas de tres y frases hechas que delatan que fue IA.</p><div class="mc-tags"><i>escritura</i><i>revisión</i></div></div><div class="mc"><span class="mc-cat">PROMPTS: COPYWRITING</span><b>Gancho de Titular</b><p>Genera ganchos de apertura que hacen que la persona deje de hacer scroll y lea el resto.</p><div class="mc-tags"><i>titular</i><i>gancho</i></div></div></div></div>
+          <div class="mfr" data-k="prompt"><div class="m-scroll"><p class="m-back">← Volver al Cofre de Prompts</p><div class="m-pcard"><span class="mc-cat">PROMPTS: COPYWRITING</span><p class="m-ptitle">REESCRIBE SIN SONAR A IA</p><p class="m-pdesc">Reescribe un texto robótico eliminando clichés y patrones típicos de los textos generados por IA.</p><div class="mc-tags"><i>escritura</i><i>humanización</i><i>edición</i><i>copywriting</i></div><p class="m-pmeta">⧉ 6 copias · ◉ 7 vistas</p><span class="m-copy" id="mcopy">Copiar prompt</span></div><div class="m-pcard"><p class="m-ptitle sm">CALIFICA ESTE PROMPT</p><p class="m-stars">☆ ☆ ☆ ☆ ☆</p></div></div></div>
+          <div class="mfr mgpt" data-k="gpt"><div class="mg-top"><span>☰</span><b>ChatGPT ⌄</b><span>✎</span></div><div class="mg-body"><p class="mg-empty" id="mgEmpty">¿Por dónde empezamos?</p><div class="mg-user" id="mgUser"><div class="blur-lines"><i style="width:94%"></i><i style="width:86%"></i><i style="width:90%"></i><i style="width:70%"></i></div></div><div class="mg-ai" id="mgAi"></div></div><div class="mg-input" id="mgInput"><span>+</span><em id="mgPh">Pregunta lo que quieras</em><span class="mg-paste"><i></i><i></i></span><b id="mgSend">↑</b></div></div>
+          <span class="tap" id="tap"></span>
+        </div>
+      </div>
+      <div class="dv-toggle" role="group" aria-label="Ver como computadora o celular">
+        <button type="button" data-d="desktop" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg>Computadora</button>
+        <button type="button" data-d="mobile" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/></svg>Celular</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ISSO TE PARECE FAMILIAR? -->
+<section class="sec grid-bg center">
+  <div class="wrap">
+    <h2 class="h2 rv narrow">¿Esto te resulta <em>familiar?</em></h2>
+    <div class="bento">
+      <article class="bx bx-wide rv">
+        <div class="mini gptmini">
+          <p class="mini-h">ChatGPT</p>
+          <p class="mini-u">crea un post para instagram sobre mi negocio</p>
+          <p class="mini-a"><mark>🚀</mark> <mark>En un mundo cada vez más digital</mark>, la IA ya no es el futuro <mark>—</mark> es el presente. <mark>✨</mark> Descubre cómo <mark>transformar</mark> tu negocio…</p>
+        </div>
+        <h3>El post sale sonando a IA</h3>
+        <p>Y sabes que cualquiera que lo lea lo va a notar.</p>
+      </article>
+      <article class="bx rv">
+        <div class="mini savedmini ig"><img src="/img/salvos-instagram.jpg" width="520" height="897" alt="Carpeta de posts guardados en Instagram, llena de videos sobre IA" loading="lazy"><p class="ig-count">147 posts guardados · 0 aplicados</p></div>
+        <h3>Guardas todo, no aplicas nada</h3>
+        <p>La carpeta de videos de IA solo crece.</p>
+      </article>
+      <article class="bx rv">
+        <div class="mini adsmini">
+          <p class="mini-h">Anuncio · últimos 7 días</p>
+          <div class="metric"><span>CTR</span><b>0,4%</b></div>
+          <div class="metric"><span>Ventas</span><b>0</b></div>
+        </div>
+        <h3>El copy en el que nadie hace clic</h3>
+        <p>Lees el anuncio y ya sabes que no va a vender.</p>
+      </article>
+      <article class="bx rv">
+        <div class="mini timermini">
+          <p class="t">00:40:12</p>
+          <p class="try">Intento 7: "no, hazlo de nuevo, más humano"</p>
+        </div>
+        <h3>40 minutos reescribiendo el pedido</h3>
+        <p>Y al final lo haces tú solo.</p>
+      </article>
+      <article class="bx rv">
+        <div class="mini ideasmini">
+          <p class="mini-h">Ideas de contenido para tu nicho</p>
+          <ol><li>5 tips de productividad</li><li>Un día en mi rutina</li><li>Mitos y verdades sobre…</li></ol>
+          <p class="same">La misma lista que todo tu nicho ya publicó</p>
+        </div>
+        <h3>La idea que todo el mundo ya tuvo</h3>
+        <p>Pides ideas y recibes lo obvio, otra vez.</p>
+      </article>
+      <article class="bx rv">
+        <div class="mini imgmini"><p class="mini-h">Imagen generada · "foto profesional para mi perfil"</p><img class="ai-photo" src="/img/foto-ia-ruim.jpg" width="640" height="640" alt="Foto que se nota hecha con IA: piel de plástico, color exagerado y marca de agua" loading="lazy"></div>
+        <h3>La foto que grita "hecha con IA"</h3>
+        <p>Piel de plástico, luz rara, nada parecido a ti.</p>
+      </article>
+      <article class="bx bx-wide rv">
+        <div class="mini gptmini">
+          <p class="mini-h">ChatGPT</p>
+          <p class="mini-u">haz un estudio de mercado para abrir una clínica de estética en mi ciudad</p>
+          <p class="mini-a">El mercado de la estética <mark>está en constante crecimiento</mark> y presenta <mark>grandes oportunidades</mark>. Es importante <mark>conocer a tu público objetivo</mark>, <mark>analizar a la competencia</mark> e <mark>invertir en marketing digital</mark>…</p>
+          <p class="count">0 números · 0 competidores citados · 0 decisiones posibles</p>
+        </div>
+        <h3>El estudio de mercado que no dice nada</h3>
+        <p>Pides un análisis para decidir una inversión y recibes frases hechas.</p>
+      </article>
+    </div>
+    <p class="you rv">Si te viste en al menos una de estas, <em>este Cofre es para ti.</em></p>
+  </div>
+</section>
+
+<!-- CASE DO GUILHERME -->
+<section class="sec grid-bg center">
+  <div class="wrap">
+    <h2 class="h2 rv narrow">Yo también pasaba por todo esto. <em>Hasta que...</em></h2>
+    <p class="lead rv narrow mt2">Dejé de improvisar pedidos a la IA, dejé de mandar esos prompts genéricos que todo el mundo usa, y empecé a seguir una ingeniería que me tomó semanas estudiar hasta aprender y dominar la ingeniería de prompts perfectos...</p>
+    <p class="lead rv narrow mt1">Fue con estos prompts, perfeccionándolos TODOS los días, que construí 3 empresas desde cero, que juntas facturan más de R$200.000 al mes, mientras hacía crecer mi perfil de Instagram de 0 a más de 150.000 seguidores en menos de 6 meses.</p>
+    <div class="statrow2">
+      <div class="rv"><b>0 → 150 mil</b><span>seguidores en menos de 6 meses</span></div>
+      <div class="rv"><b>3</b><span>empresas facturando R$200.000 al mes</span></div>
+      <div class="rv"><b>+R$100 mil</b><span>de ganancia con los prompts</span></div>
+    </div>
+    <p class="alert rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 10v4M12 17.5v.01"/></svg><span>Sin excepción, <b>TODOS los prompts fueron usados y probados por mí</b>, antes de entrar al Cofre.</span></p>
+  </div>
+</section>
+
+<!-- ANTES × DEPOIS (estilo ChatGPT) -->
+<section class="sec grid-bg center">
+  <div class="wrap">
+    <h2 class="h2 rv narrow">Mira la diferencia de <em>un prompt a otro</em></h2>
+    <div class="ba">
+      <div class="ba-col rv">
+        <p class="ba-k bad">Antes, mandabas esto:</p>
+        <div class="gpt-card">
+          <div class="gpt-top"><span>ChatGPT</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+          <div class="gpt-body">
+            <div class="gpt-user show">crea un post para instagram sobre cómo usar IA en mi negocio</div>
+            <div class="gpt-ai show"><p>🚀 <b>¡Descubre cómo la Inteligencia Artificial puede transformar tu negocio!</b></p><p>En un mundo cada vez más digital, la IA ya no es el futuro — es el presente. ✨</p><p>Aquí tienes 5 tips para empezar:</p><p>1. Automatiza tareas repetitivas<br>2. Usa chatbots en la atención<br>3. Analiza datos con más precisión…</p></div>
+          </div>
+        </div>
+        <p class="ba-v bad">Y recibías esto: el mismo post que todo el mundo ya vio.</p>
+      </div>
+      <div class="ba-col rv">
+        <p class="ba-k good">Hoy, mandas esto:</p>
+        <div class="gpt-card">
+          <div class="gpt-top"><span>ChatGPT</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+          <div class="gpt-body">
+            <div class="gpt-user show"><div class="blur-lines"><i style="width:94%"></i><i style="width:86%"></i><i style="width:91%"></i><i style="width:78%"></i><i style="width:88%"></i><i style="width:60%"></i></div><span class="lock-chip">Prompt del Cofre</span></div>
+            <div class="gpt-ai show"><p><b>3 ideas de contenido de TOPE, MEDIO y FONDO de embudo para tu nicho (3 de cada uno).</b></p><p>1 - El formato de CTV que me trajo más de R$300.000 en un solo mes<br>2 - Cómo bajé mi CAC y aumenté mi facturación con la frase de este libro<br>3 - ¿Cómo hice el post que me trajo 26.785 seguidores?<br>…</p></div>
+          </div>
+        </div>
+        <p class="ba-v good">Y recibes esto: contenido que nadie en tu nicho está publicando.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MECANISMO -->
+<section class="sec grid-bg center">
+  <div class="wrap">
+    <h2 class="h2 rv narrow">No necesitas aprender ingeniería de prompts, <em>solo necesitas copiar y pegar en el chat de tu IA</em></h2>
+    <div class="steps4b">
+      <div class="rv"><span>01</span><b>Muestra</b><p>la tarea que quieres hacer.</p></div>
+      <div class="rv"><span>02</span><b>Recibe</b><p>los mejores prompts para ejecutarla.</p></div>
+      <div class="rv"><span>03</span><b>Copia</b><p>el prompt con un clic en el botón de copiar.</p></div>
+      <div class="rv"><span>04</span><b>Pega</b><p>en el chat de tu IA: ChatGPT, Claude o Gemini.</p></div>
+    </div>
+    <p class="isso rv">Listo. Acabas de obtener el mejor resultado posible.</p>
+  </div>
+</section>
+
+<!-- O QUE VEM DENTRO -->
+<section class="sec grid-bg center">
+  <div class="wrap">
+    <h2 class="h2 rv">Ya no necesitas <em>empezar de cero</em></h2>
+    <p class="lead rv narrow mt2">Para cada tarea ya hay un prompt listo para darte el mejor resultado posible.</p>
+    <div class="index">
+      <div class="ix-row rv"><span class="ix-n">01</span><h3>Creación de contenido</h3><div class="ix-tags"><span>Estructura de contenido de tope, medio y fondo para los próximos 30 días</span><span>Hooks que más convirtieron en 2026 (orgánicos y pagados)</span><span>Guion de 7 slides para carrusel</span><span>Planificación de stories día a día</span></div></div>
+      <div class="ix-row rv"><span class="ix-n">02</span><h3>Escritura que no suena a IA</h3><div class="ix-tags"><span>Escribe un titular para</span><span>Reescribe este texto, pero adaptado a mi escenario</span><span>Escribe 4 creativos con ángulos distintos para mi producto</span><span>Dame 7 ideas de titular para mi oferta</span></div></div>
+      <div class="ix-row rv"><span class="ix-n">03</span><h3>Ventas y oferta</h3><div class="ix-tags"><span>Prepara el guion de mi reunión de ventas</span><span>¿Qué mensaje de seguimiento le mando a este lead?</span><span>Quiero hacer un lanzamiento de mi producto el día x</span><span>¿Por qué se saturó este creativo?</span><span>Analiza mi oferta y dime cómo puedo mejorarla</span><span>Ángulos y modelos de creativos para grabar para x</span></div></div>
+      <div class="ix-row rv"><span class="ix-n">04</span><h3>Investigación y estrategia</h3><div class="ix-tags"><span>Estudio de mercado para tal nicho</span><span>¿Qué producto vendió más en el nicho de adelgazamiento en 2025?</span><span>¿Cuál es la estrategia de Rock in Rio para vender entradas y cómo la aplico en mi negocio?</span></div></div>
+      <div class="ix-row rv"><span class="ix-n">05</span><h3>Productividad</h3><div class="ix-tags"><span>Planifica mi semana</span><span>¿Cuál es la forma más rápida de aprender inglés?</span><span>¿Qué libros leo para aprender copywriting?</span><span>¿Cuál es el mejor momento del día para ir al gimnasio?</span></div></div>
+      <div class="ix-row rv"><span class="ix-n">06</span><h3>Finanzas</h3><div class="ix-tags"><span>Software para controlar mis gastos dentro de mi WhatsApp</span><span>¿Cuánto voy a tener a fines de 2027 si hago x?</span><span>Planificación de viaje</span></div></div>
+      <div class="ix-row rv"><span class="ix-n">07</span><h3>Estudio y carrera</h3><div class="ix-tags"><span>Método Feynman Forzado</span><span>Profesor Socrático</span></div></div>
+      <div class="ix-row rv"><span class="ix-n">08</span><h3>Imágenes con IA</h3><div class="ix-tags"><span>Headshot profesional</span><span>Foto profesional de estudio</span><span>Diseño para Instagram</span></div></div>
+    </div>
+    <p class="depth rv">Y más de 500 prompts, organizados por categoría y nichos diferentes, para maximizar tus resultados.</p>
+  </div>
+</section>
+
+<!-- OBJEÇÃO: E SE NÃO TIVER O PROMPT? -->
+<section class="sec grid-bg center">
+  <div class="wrap">
+    <p class="obj-q rv">"Ah, ¿y si no está el prompt <em>para lo que necesito?</em>"</p>
+    <p class="lead rv narrow mt2">Dentro del Cofre de Prompts encuentras más de 500 prompts, divididos en 20 nichos y categorías diferentes. Y cada vez que pruebo y valido un prompt, lo subo al Cofre.</p>
+    <div class="obj-stats">
+      <div class="rv"><b>+500</b><span>prompts listos</span></div>
+      <div class="rv"><b>20</b><span>nichos y categorías</span></div>
+      <div class="rv"><b>Nuevos</b><span>prompts entrando siempre</span></div>
+      <div class="rv"><b>De por vida</b><span>acceso para siempre</span></div>
+    </div>
+    <p class="obj-a rv">Y tienes <em>acceso de por vida</em> a todo esto, incluso a los nuevos prompts que subo todos los días.</p>
+  </div>
+</section>
+
+<!-- FUNCIONA PRA VOCÊ (perfis) -->
+<section class="sec paper center">
+  <div class="wrap">
+    <h2 class="h2 rv narrow">Funciona para ti, <em>sea cual sea tu trabajo</em></h2>
+    <p class="lead rv narrow mt2">Los prompts del Cofre siguen una estructura universal: funcionan en los 20 nichos que hay adentro y en cualquier otro que pongas. Y corren en la IA que ya usas, sea ChatGPT, Claude, Gemini, Grok o DeepSeek. Elige tu perfil:</p>
+    <div class="profiles rv">
+      <div class="pf-tabs" role="tablist" aria-label="Elige tu perfil"><button type="button" role="tab" aria-selected="true" data-pf="prest">Prestador de servicios</button><button type="button" role="tab" aria-selected="false" data-pf="emp">Empresario</button><button type="button" role="tab" aria-selected="false" data-pf="cri">Creador de contenido</button><button type="button" role="tab" aria-selected="false" data-pf="est">Estudiante</button><button type="button" role="tab" aria-selected="false" data-pf="dev">Desarrollador</button><button type="button" role="tab" aria-selected="false" data-pf="clt">Profesional</button><button type="button" role="tab" aria-selected="false" data-pf="aut">Independiente</button><button type="button" role="tab" aria-selected="false" data-pf="gest">Gerente</button></div>
+      <div class="pf-body">
+        <div class="pf-panel on" data-pf="prest">
+          <p class="pf-k">Si eres prestador de servicios</p>
+          <h3>Deja de cobrar barato y de perseguir clientes.</h3>
+          <ul><li>Descubre el precio correcto de tu servicio, con tu margen, en vez de adivinar y cobrar menos que la competencia</li><li>Escribe la propuesta y el seguimiento que hacen que el cliente responda, y cierre</li><li>Lee el contrato antes de que firmes y señala dónde estás perdiendo</li></ul>
+          <div class="pf-ex"><span>Prompts que vas a usar</span><b>Calcula cuánto debo cobrar para tener 40% de margen en este servicio</b><b>Responde a este cliente que pidió descuento sin bajar mi precio</b><b>Escribe la propuesta que haga que este cliente cierre conmigo hoy</b></div>
+        </div>
+        <div class="pf-panel" data-pf="emp">
+          <p class="pf-k">Si eres empresario</p>
+          <h3>Decisiones con números, no con corazonadas.</h3>
+          <ul><li>Muestra dónde tu embudo está perdiendo dinero y qué ajustar primero</li><li>Desarma al competidor que está vendiendo más que tú</li><li>Simula el escenario antes de contratar, invertir o cambiar el precio</li></ul>
+          <div class="pf-ex"><span>Prompts que vas a usar</span><b>Analiza mi oferta y dime por qué no está vendiendo</b><b>Muéstrame qué hace mi competidor que yo no hago</b><b>Arma el plan para duplicar mi facturación en 90 días</b></div>
+        </div>
+        <div class="pf-panel" data-pf="cri">
+          <p class="pf-k">Si eres creador de contenido</p>
+          <h3>Nunca más abras Instagram sin saber qué publicar.</h3>
+          <ul><li>Genera la pauta del mes entero, de tope a fondo de embudo</li><li>Escribe el gancho que hace que la persona deje de hacer scroll</li><li>Convierte un video tuyo en carrusel, guion de Reels y caption</li></ul>
+          <div class="pf-ex"><span>Prompts que vas a usar</span><b>Dame 30 ideas de post que nadie en mi nicho hizo todavía</b><b>Reescribe este gancho para retener a la persona los primeros 3 segundos</b><b>Convierte este post que se hizo viral en 10 variaciones</b></div>
+        </div>
+        <div class="pf-panel" data-pf="est">
+          <p class="pf-k">Si eres estudiante</p>
+          <h3>Estudia la mitad del tiempo y recuerda el doble.</h3>
+          <ul><li>Convierte la IA en un profesor particular que te evalúa antes de dejarte avanzar</li><li>Arma el cronograma hasta el examen, de atrás hacia adelante</li><li>Explica la materia difícil como si tuvieras 12 años</li></ul>
+          <div class="pf-ex"><span>Prompts que vas a usar</span><b>Pregúntame sobre este contenido hasta que acierte todo</b><b>Arma mi cronograma de estudio hasta el examen del día x</b><b>Explícame este tema como si nunca lo hubiera visto</b></div>
+        </div>
+        <div class="pf-panel" data-pf="dev">
+          <p class="pf-k">Si eres desarrollador</p>
+          <h3>Deja de trabarte en lo que no es código.</h3>
+          <ul><li>Explica el error y señala la causa en vez de darte una suposición</li><li>Divide la tarea gigante en entregas que puedes hacer hoy</li><li>Escribe la documentación y el mensaje al cliente que nadie quiere escribir</li></ul>
+          <div class="pf-ex"><span>Prompts que vas a usar</span><b>Explícame por qué este código da error y cómo resolverlo</b><b>Divide este proyecto en tareas de máximo 2 horas</b><b>Escribe la documentación de este proyecto para que mi cliente la entienda</b></div>
+        </div>
+        <div class="pf-panel" data-pf="clt">
+          <p class="pf-k">Si eres profesional</p>
+          <h3>Sé el más rápido del equipo, y crece por eso.</h3>
+          <ul><li>Escribe el e-mail difícil en el tono correcto, a la primera</li><li>Ajusta el currículum para pasar el filtro y prepara la entrevista</li><li>Arma el argumento para pedir un aumento con datos</li></ul>
+          <div class="pf-ex"><span>Prompts que vas a usar</span><b>Reescribe este e-mail para mi jefe sin que parezca que me estoy quejando</b><b>Adapta mi currículum a esta vacante y prepárame para la entrevista</b><b>Arma mi argumento para pedir un aumento en la próxima reunión</b></div>
+        </div>
+        <div class="pf-panel" data-pf="aut">
+          <p class="pf-k">Si eres independiente</p>
+          <h3>Trabajas solo, pero entregas como un equipo entero.</h3>
+          <ul><li>Promociona tu trabajo sin pasar horas creando posts</li><li>Organiza la agenda, los clientes y las finanzas en un solo lugar</li><li>Responde clientes, presupuestos y cobros en el tono correcto, rápido</li></ul>
+          <div class="pf-ex"><span>Prompts que vas a usar</span><b>Escribe el mensaje para cobrarle a este cliente atrasado sin perderlo</b><b>Arma mi presupuesto para este servicio y el mensaje para enviarlo</b><b>Crea 10 posts para promocionar mi trabajo esta semana</b></div>
+        </div>
+        <div class="pf-panel" data-pf="gest">
+          <p class="pf-k">Si eres gerente</p>
+          <h3>Tu equipo rindiendo más, sin que tengas que apagar incendios.</h3>
+          <ul><li>Arma el proceso que el equipo sigue sin que tengas que explicarlo de nuevo</li><li>Prepara la reunión, la agenda y el feedback difícil</li><li>Lee los números de la semana y señala lo que necesita atención</li></ul>
+          <div class="pf-ex"><span>Prompts que vas a usar</span><b>Crea el paso a paso de este proceso para que mi equipo lo siga solo</b><b>Ayúdame a dar este feedback difícil sin desmotivar a la persona</b><b>Analiza estos números y dime dónde se está trabando mi equipo</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NÃO É PRA VOCÊ -->
+<section class="sec grid-bg center">
+  <div class="wrap narrow">
+    <h2 class="h2 rv">Este Cofre <em>no es para ti</em> si…</h2>
+    <ul class="notfor2">
+      <li class="rv"><span>✕</span>Crees que la IA es solo una moda y va a pasar</li>
+      <li class="rv"><span>✕</span>Prefieres seguir haciendo todo a mano</li>
+      <li class="rv"><span>✕</span>Quieres seguir pagando caro por servicios y software</li>
+      <li class="rv"><span>✕</span>Crees que copiar un prompt te va a hacer rico sin aplicar nada</li>
+    </ul>
+    <p class="you rv" style="color:#ffffff">Ahora, si quieres usar la IA <em>para trabajar menos y ganar más</em>, sigue leyendo.</p>
+  </div>
+</section>
+
+<!-- O QUE R$27,90 COMPRA (recibo) -->
+<section class="sec grid-bg center">
+  <div class="wrap">
+    <h2 class="h2 rv narrow">¿Qué más haces con <em>R$27,90</em> hoy?</h2>
+    <div class="receipt rv">
+      <p class="rc-h">Recibo</p>
+      <p class="rc-row"><span>1 viaje en Uber<small>que se termina en 20 minutos</small></span><i></i><b>R$27,90</b></p>
+      <p class="rc-row"><span>Medio combo de comida rápida<small>que se termina en menos de 10 minutos</small></span><i></i><b>R$27,90</b></p>
+      <p class="rc-row"><span>1 mes de streaming que solo usas el fin de semana<small>se termina en 30 días</small></span><i></i><b>R$27,90</b></p>
+      <p class="rc-cut"></p>
+      <p class="rc-row hl"><span>Cofre de Prompts<small>dura para siempre, y además te va a dejar más dinero en el bolsillo</small></span><i></i><b>R$27,90</b></p>
+      <p class="rc-note">Los R$27,90 del Cofre duran para siempre, porque alimento el sistema con prompts nuevos todos los días.</p>
+      <p class="rc-res">Vas a gastar R$27,90 para acceder a algo que me tomó semanas desarrollar y que ya me dejó <em>más de R$100.000</em> en el bolsillo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EU SOU O GUILHERME -->
+<section class="sec grid-bg">
+  <div class="wrap gm">
+    <figure class="gm-photo rv"><img src="/img/guilherme.webp" width="460" height="460" alt="Guilherme Morais" loading="lazy"><figcaption>@guilhermemorais.ia</figcaption></figure>
+    <div class="gm-txt">
+      <h2 class="h2 rv">Yo soy <em>Guilherme.</em></h2>
+      <p class="lead rv mt2">Pasé semanas estudiando ingeniería de prompts para construir el material que me ayudó a construir mis 3 empresas y llevar mi perfil de cero a más de 150.000 seguidores en menos de 6 meses.</p>
+      <p class="lead rv mt1">No tengo copywriter, trafficker, agencia de marketing, community manager, nada de eso.</p>
+      <p class="lead rv mt1">Lo que tengo son estos prompts. Con ellos escribo guiones, saco ideas de posts, estudio el mercado, armo ofertas, vendo y analizo métricas, TODOS los días.</p>
+      <div class="gm-stats rv"><div><b>3</b><span>empresas</span></div><div><b>150 mil</b><span>seguidores</span></div><div><b>+R$100 mil</b><span>con los prompts</span></div></div>
+      <p class="gm-sign rv">Guilherme Morais</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section id="planos" class="sec grid-bg center">
+  <div class="wrap">
+    <h2 class="h2 rv">Elige <em>cómo quieres empezar</em></h2>
+    <div class="plans2">
+      <article class="plan2 rv">
+        <p class="p-name">Cofre de Prompts</p>
+        <p class="p-old">De <s>R$67,90</s> por</p>
+        <p class="p-price">R$27,90</p>
+        <p class="p-desc">Los prompts que uso, listos para que los copies y pegues en tu IA.</p>
+        <ul><li><span><b>Más de 500 prompts listos.</b> Organizados en 20 nichos y categorías.</span></li><li><span><b>Los prompts que uso.</b> En el contenido, las ventas y la operación de mis empresas.</span></li><li><span><b>Buscador y botón de copiar.</b> Encuentras la tarea, copias y pegas. En segundos.</span></li><li><span><b>Funciona en cualquier IA de texto.</b> ChatGPT, Claude, Gemini, Grok, DeepSeek.</span></li><li><span><b>Acceso de por vida.</b> Incluso a los prompts nuevos que van entrando.</span></li></ul>
+        <a href="https://pay.hub.la/x2ECOub4xYeYXnGeiW7S" class="btn btn-lg btn-full btn-ghost2">Solo quiero los prompts <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="p-per">Pago único · Sin suscripción</p>
+      </article>
+      <article class="plan2 best rv">
+        <span class="p-badge">Más conveniente</span>
+        <p class="p-name">Cofre de Prompts PREMIUM</p>
+        <p class="p-old">De <s>R$147,90</s> por</p>
+        <p class="p-price">R$67,90</p>
+        <p class="p-desc">Los mismos prompts, más las skills que hacen que tu Claude trabaje como el mío. Las instalas una vez y solo conversas.</p>
+        <ul><li><span><b>Todo el Cofre de Prompts,</b> más la Biblioteca de Skills.</span></li><li><span><b>Más de 500 skills listas para Claude.</b> Cada una con manual de instalación paso a paso.</span></li><li><span><b>Instálala una vez, funciona para siempre.</b> La skill se queda en tu Claude y se activa sola cuando aparece la tarea. Ya no pegas nada.</span></li><li><span><b>Prompts que rinden hasta 200% mejor.</b> Con la skill instalada, Claude ya llega sabiendo el método antes de que se lo pidas.</span></li><li><span><b>Tu Claude trabajando como el mío.</b> Los mismos métodos que uso en mis 3 empresas, instalados en el tuyo.</span></li><li><span><b>19 áreas de trabajo.</b> Tráfico, embudo, contenido, ventas, e-mail, legal, finanzas, operación y más.</span></li><li><span><b>Nuevos todos los días.</b> Prompts y skills nuevos entran a medida que los valido, sin que pagues de nuevo.</span></li><li><span><b>Más de 1.000 prompts y skills.</b> Acceso de por vida a los dos.</span></li></ul>
+        <a href="https://pay.hub.la/2pVMbMFPRGpW8c7sX0gN" class="btn btn-lg btn-full">QUIERO EL COFRE PREMIUM <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="p-per">Pago único · Sin suscripción · Acceso de por vida a los dos</p>
+      </article>
+    </div>
+    <p class="meta rv mt2">Pago seguro con tarjeta vía Hubla · Acceso inmediato en tu e-mail</p>
+  </div>
+</section>
+
+<!-- GARANTIA (certificado) -->
+<section class="sec grid-bg center">
+  <div class="wrap">
+    <div class="cert rv">
+      <svg class="stamp" viewBox="0 0 220 220" aria-label="Sello: garantía incondicional de 30 días">
+        <defs>
+          <filter id="inka" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="7" result="n"/>
+            <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.25 1.55" result="m"/>
+            <feComposite in="SourceGraphic" in2="m" operator="in" result="worn"/>
+            <feTurbulence type="turbulence" baseFrequency=".04" numOctaves="2" seed="3" result="w"/>
+            <feDisplacementMap in="worn" in2="w" scale="3.6" xChannelSelector="R" yChannelSelector="G" result="d"/><feGaussianBlur in="d" stdDeviation=".55" result="b"/><feOffset in="b" dx="1.4" dy=".8" result="ghost"/><feComponentTransfer in="ghost" result="g2"><feFuncA type="linear" slope=".35"/></feComponentTransfer><feMerge><feMergeNode in="g2"/><feMergeNode in="b"/></feMerge>
+          </filter>
+          <path id="sta" d="M110 110 m-78 0 a78 78 0 1 1 156 0 a78 78 0 1 1 -156 0"/>
+        </defs>
+        <g filter="url(#inka)" fill="none" stroke="#c2410c">
+          <circle cx="110" cy="110" r="104" stroke-width="5"/>
+          <circle cx="110" cy="110" r="96" stroke-width="1.6"/>
+          <circle cx="110" cy="110" r="60" stroke-width="1.6"/>
+          <text fill="#c2410c" stroke="none" font-family="IBM Plex Mono,monospace" font-size="15" font-weight="600" letter-spacing="4.2"><textPath href="#sta">GARANTÍA INCONDICIONAL ★ RIESGO CERO ★ </textPath></text>
+          <text x="110" y="113" text-anchor="middle" fill="#c2410c" stroke="none" font-family="Instrument Serif,Georgia,serif" font-size="62">30</text>
+          <text x="110" y="137" text-anchor="middle" fill="#c2410c" stroke="none" font-family="IBM Plex Mono,monospace" font-size="15" font-weight="600" letter-spacing="5">DÍAS</text>
+          <path d="M14 112h40M166 112h40" stroke-width="2"/>
+        </g>
+      </svg>
+      <p class="cert-k">Certificado de garantía</p>
+      <h2 class="cert-t">Garantía <em>incondicional</em> de <span class="cert-30">30</span> días</h2>
+      <p class="cert-sub">Confío tanto en el Cofre de Prompts que no te voy a dar 7 días de garantía, te voy a dar 30. Entra, prueba todos los prompts durante 30 días y, si no tienes ningún resultado, por cualquier motivo, te devuelvo el 100% de tu dinero.</p>
+      <div class="cert-terms">
+        <div><span>01</span><b>Entra y úsalo</b><p>Copia los prompts y úsalos en tu día a día, durante 30 días.</p></div>
+        <div><span>02</span><b>¿No te gustó?</b><p>Pide el reembolso por Hubla, por cualquier motivo, sin tener que justificar.</p></div>
+        <div><span>03</span><b>100% de vuelta</b><p>Recibes todo tu dinero de vuelta.</p></div>
+      </div>
+      <div class="cert-foot"><div><p class="sig">Guilherme Morais</p><p class="sig-l">Guilherme Morais · @guilhermemorais.ia</p></div><p class="cert-reg">Válido por 30 días desde la compra<br>Reembolso solicitado por Hubla</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec grid-bg center">
+  <div class="wrap">
+    <h2 class="h2 rv">¿Te quedó <em>alguna duda?</em></h2>
+    <div class="faq">
+      <details class="rv"><summary><span><b>1.</b>¿Cuántos prompts hay en el Cofre?</span><span class="pm">+</span></summary><p>Más de 500 prompts, divididos en 20 nichos y categorías. Y alimento el Cofre todos los días, así que siempre hay prompts nuevos entrando.</p></details>
+      <details class="rv"><summary><span><b>2.</b>¿Y si no hay ningún prompt para mí?</span><span class="pm">+</span></summary><p>Es difícil que no haya un prompt para ti: son más de 500 y subo nuevos todos los días, a medida que los valido. Estoy seguro de que al menos el 20% te va a servir.</p></details>
+      <details class="rv"><summary><span><b>3.</b>¿Funciona en ChatGPT?</span><span class="pm">+</span></summary><p>Funciona en ChatGPT, Claude, Gemini y en cualquier IA de texto. Es copiar y pegar.</p></details>
+      <details class="rv"><summary><span><b>4.</b>¿Necesito saber de IA o de prompts?</span><span class="pm">+</span></summary><p>No. El prompt ya viene listo. Eliges la tarea, copias y pegas.</p></details>
+      <details class="rv"><summary><span><b>5.</b>¿Estos prompts sirven para mi nicho?</span><span class="pm">+</span></summary><p>Están organizados por categoría y por tarea: contenido, ventas, investigación, estrategia, productividad, estudio y más.</p></details>
+      <details class="rv"><summary><span><b>6.</b>¿Cómo recibo el acceso?</span><span class="pm">+</span></summary><p>Apenas se confirma el pago, el acceso llega a tu e-mail. Revisa también el spam y la pestaña de promociones.</p></details>
+      <details class="rv"><summary><span><b>7.</b>¿Es una suscripción?</span><span class="pm">+</span></summary><p>No. Pago único de R$27,90, sin mensualidad.</p></details>
+      <details class="rv"><summary><span><b>8.</b>¿Por cuánto tiempo tengo acceso?</span><span class="pm">+</span></summary><p>El acceso no tiene fecha de vencimiento.</p></details>
+      <details class="rv"><summary><span><b>9.</b>¿Cuál es la diferencia con el Cofre de Skills?</span><span class="pm">+</span></summary><p>El prompt lo copias y pegas en cualquier IA. La skill es un método que instalas una vez en Claude.</p></details>
+      <details class="rv"><summary><span><b>10.</b>¿Y si no me gusta?</span><span class="pm">+</span></summary><p>Tienes 30 días de garantía incondicional. Pides el reembolso por cualquier motivo y recibes el 100% de vuelta.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="sec grid-bg center">
+  <div class="wrap">
+    <div class="final rv">
+      <img class="final-photo" src="/img/guilherme.webp" width="460" height="460" alt="Guilherme Morais" loading="lazy">
+      <h2 class="h2">No necesitas descubrir solo <em>qué pedirle a la IA</em></h2>
+      <p class="lead mt1">Los prompts que ya usé en situaciones reales están organizados para que los copies y uses. Hoy.</p>
+      <p class="final-q">¿Quieres acceder al Cofre?</p>
+      <a href="#planos" class="btn btn-lg">Quiero acceder al Cofre <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="meta mt1">6x de R$5,19 · pago único · 30 días de garantía</p>
+    </div>
+  </div>
+</section>
+
+<!-- POP-UP: oferta do PREMIUM ao clicar no plano de R$27,90 -->
+<div class="up" id="upsell" hidden>
+  <div class="up-bg" data-up-close></div>
+  <div class="up-box" role="dialog" aria-modal="true" aria-labelledby="upT">
+    <button type="button" class="up-x" data-up-close aria-label="Cerrar">×</button>
+    <p class="up-k">Antes de cerrar el Cofre de Prompts</p>
+    <h2 class="up-t" id="upT">Por R$25,74 más, te llevas el <em>PREMIUM.</em></h2>
+    <p class="up-s">Con el Cofre de Prompts Premium obtienes resultados hasta 5x MEJORES, gastando hasta 3x menos créditos.</p>
+    <div class="up-price"><s>R$67,90</s><b>R$53,64</b></div>
+    <p class="up-off">21% de descuento · menos del doble del Cofre de Prompts</p>
+    <p class="up-only">Solo en esta pantalla · Pago único</p>
+    <ul class="up-list"><li><b>Todo el Cofre de Prompts,</b> más la Biblioteca de Skills</li><li><b>Más de 500 skills listas para Claude,</b> con manual de instalación paso a paso</li><li><b>Instálala una vez, funciona para siempre.</b> La skill se activa sola cuando aparece la tarea</li><li><b>Prompts que rinden hasta 200% mejor.</b> Claude ya llega sabiendo el método</li><li><b>Tu Claude trabajando como el mío.</b> Los métodos de mis 3 empresas, instalados en el tuyo</li><li><b>19 áreas de trabajo.</b> Tráfico, embudo, contenido, ventas, legal, finanzas y más</li><li><b>Más de 1.000 prompts y skills,</b> con acceso de por vida</li></ul>
+    <div class="up-coupon"><span>Usa el cupón en el checkout:</span><button type="button" class="up-code" id="upCode" data-code="PREMIUM">PREMIUM <i>Copiar</i></button></div>
+    <a href="https://pay.hub.la/YkQPESzZJCjlD2c67pPA" class="btn btn-lg btn-full up-yes">Quiero el PREMIUM por R$53,64 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <p class="up-fine">Sin suscripción · Acceso de por vida · 30 días de garantía</p>
+    <a href="https://pay.hub.la/x2ECOub4xYeYXnGeiW7S" class="up-no">No, solo quiero el Cofre de Prompts por R$27,90</a>
+  </div>
+</div>
+
+<footer><div class="wrap foot2"><p>Guilherme Morais · <a href="https://instagram.com/guilhermemorais.ia" target="_blank" rel="noopener">@guilhermemorais.ia</a></p><p>Pago procesado por Hubla · © 2026 Cofre de Prompts</p></div></footer>
+
+<script>
+(function(){
+  // Demo do produto: cursor clica e a tela muda de estado (mesma lógica da LP da Nura).
+  var stage=document.getElementById('stage'); if(!stage) return;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var frames={}; stage.querySelectorAll('.fr').forEach(function(f){ frames[f.dataset.k]=f; });
+  var cur=document.getElementById('cursor'), ring=document.getElementById('ring'), cap=document.getElementById('demoCaption'),
+      url=document.getElementById('demoUrl'), steps=document.querySelectorAll('#stepsMini li'), copyBtn=document.getElementById('copyBtn'),
+      gEmpty=document.getElementById('gptEmpty'), gUser=document.getElementById('gptUser'), gAi=document.getElementById('gptAi'),
+      gInput=document.getElementById('gptInput'), pauseBtn=document.getElementById('pauseBtn'); if(!cap) cap={}; 
+  var paused=false, started=false;
+  var AI=window.__cofreAI=['<p><b>Aquí está tu guion, sin sonar a IA:</b></p>','<p><b>HOOK:</b> La semana pasada vi una película, y 7 días después eso me dejó R$64.387,91 en el bolsillo.</p>','<p><b>BODY:</b> Y no, no fue El Lobo de Wall Street ni ninguna película de negocios. Fue Iron Man 2, y la vi con mi hija.</p>','<p>En una escena específica de la película...</p>'];
+  function show(k){ Object.keys(frames).forEach(function(n){ frames[n].classList.toggle('on', n===k); }); }
+  function step(i){ steps.forEach(function(s,j){ s.classList.toggle('on', j===i); s.classList.toggle('done', j<i); }); }
+  function sleep(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+  async function wait(){ while(paused || window.__demoMode==='mobile') await sleep(150); }
+  async function move(x,y){ cur.style.left=x+'%'; cur.style.top=y+'%'; await sleep(reduce?50:1000); await sleep(320); await wait(); }
+  async function click(x,y){ ring.style.left=x+'%'; ring.style.top=y+'%'; ring.classList.remove('go'); void ring.offsetWidth; ring.classList.add('go'); cur.classList.add('click'); await sleep(150); cur.classList.remove('click'); }
+  function resetGpt(){ gEmpty.classList.remove('hide'); gUser.classList.remove('show'); gAi.classList.remove('show'); gAi.innerHTML=''; gInput.classList.remove('pasted'); copyBtn.classList.remove('done'); }
+  async function run(){
+    await sleep(700);
+    while(true){
+      resetGpt(); show('lib'); url.textContent='cofre de prompts'; step(0); cap.textContent='Abre el Cofre y elige lo que necesitas hacer.';
+      await sleep(1800); await wait();
+      await move(46,20); await click(46,20); show('cat'); await sleep(1300); await wait();
+      cap.textContent='Copywriting: textos que venden y no parecen hechos con IA.';
+      await move(40.2,34.5); await click(40.2,34.5); show('libcopy'); step(1);
+      cap.textContent='Encuentra el prompt correcto para la tarea.'; await sleep(1500); await wait();
+      await move(17,36.5); await click(17,36.5); show('prompt'); url.textContent='cofre de prompts / reescribe sin sonar a ia'; step(2);
+      cap.textContent='¿Abriste el prompt? Un clic para copiar.'; await sleep(1300); await wait();
+      await move(49,38.2); await click(49,38.2); copyBtn.classList.add('done'); await sleep(1300); await wait();
+      show('gpt'); url.textContent='chatgpt.com'; step(3); cap.textContent='Pega en ChatGPT, Claude o Gemini.';
+      cur.style.transition='none'; cur.style.left='50%'; cur.style.top='62%'; void cur.offsetWidth; cur.style.transition='';
+      await sleep(900); await wait();
+      await move(40,88); await click(40,88); gInput.classList.add('pasted'); await sleep(900); await wait();
+      await move(87.5,88); await click(87.5,88); gInput.classList.remove('pasted'); gEmpty.classList.add('hide'); gUser.classList.add('show');
+      await sleep(700); gAi.classList.add('show'); cap.textContent='Listo. La respuesta al nivel que querías, a la primera.';
+      for(var i=0;i<AI.length;i++){ gAi.insertAdjacentHTML('beforeend', AI[i]); await sleep(650); }
+      await move(60,70); await sleep(3200); await wait();
+    }
+  }
+  if(pauseBtn) pauseBtn.addEventListener('click', function(){ paused=!paused; pauseBtn.setAttribute('aria-label', paused?'Continuar demonstração':'Pausar demonstração'); pauseBtn.innerHTML=paused?'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>':'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>'; });
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting && !started){ started=true; run(); } }); },{threshold:.3}).observe(stage); } else { started=true; run(); }
+})();
+</script>
+<script>
+(function(){
+  // Entrada com glitch ao rolar
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.rv:not(.in)');
+  if (reduce || !('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: .15, rootMargin: '0px 0px -6% 0px' });
+  els.forEach(function(e){ io.observe(e); });
+})();
+</script>
+<script>
+(function(){
+  // Repassa utm_* da LP para o checkout da Hubla sem alterar outros links.
+  var keys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+  var src=new URLSearchParams(location.search), out=new URLSearchParams();
+  keys.forEach(function(k){var v=src.get(k); if(v) out.set(k,v);});
+  if(![...out.keys()].length) return;
+  document.querySelectorAll('a[href^="https://pay.hub.la/"]').forEach(function(a){
+    var u=new URL(a.href); out.forEach(function(v,k){ if(!u.searchParams.has(k)) u.searchParams.set(k,v); }); a.href=u.toString();
+  });
+})();
+</script>
+<script>
+(function(){
+  // Perfis: troca o painel pela aba escolhida
+  var tabs=document.querySelectorAll('.pf-tabs button'), panels=document.querySelectorAll('.pf-panel');
+  tabs.forEach(function(t){ t.addEventListener('click', function(){
+    tabs.forEach(function(x){ x.setAttribute('aria-selected', String(x===t)); });
+    panels.forEach(function(p){ p.classList.toggle('on', p.dataset.pf===t.dataset.pf); });
+  }); });
+})();
+</script>
+<script>
+(function(){
+  // Demo no celular: telas montadas com a interface mobile do Cofre, toque no lugar do cursor.
+  var demo=document.getElementById('demo'), phone=document.getElementById('phone'), win=demo&&demo.querySelector('.demo-win');
+  if(!demo||!phone) return;
+  var btns=document.querySelectorAll('.dv-toggle button'), mode='desktop';
+  var fr={}; phone.querySelectorAll('.mfr').forEach(function(f){ fr[f.dataset.k]=f; });
+  var tap=document.getElementById('tap'), stage=document.getElementById('mstage');
+  var AI=window.__cofreAI||[];
+  function setMode(m){ mode=m; demo.dataset.device=m; phone.hidden=(m!=='mobile'); btns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.d===m)); }); window.__demoMode=m; }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ setMode(b.dataset.d); }); });
+  setMode(window.matchMedia('(max-width: 759px)').matches ? 'mobile' : 'desktop');
+  function sleep(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+  async function wait(){ while(mode!=='mobile') await sleep(200); }
+  function show(k){ Object.keys(fr).forEach(function(n){ fr[n].classList.toggle('on', n===k); }); }
+  async function tapOn(el){
+    await wait();
+    var sr=stage.getBoundingClientRect(), r=el.getBoundingClientRect();
+    tap.style.left=((r.left+r.width/2-sr.left)/sr.width*100)+'%'; tap.style.top=((r.top+r.height/2-sr.top)/sr.height*100)+'%';
+    tap.classList.remove('go'); void tap.offsetWidth; tap.classList.add('go'); await sleep(450);
+  }
+  var gE=document.getElementById('mgEmpty'), gU=document.getElementById('mgUser'), gA=document.getElementById('mgAi'), gI=document.getElementById('mgInput'), copy=document.getElementById('mcopy');
+  async function run(){
+    while(true){
+      await wait();
+      gE.classList.remove('hide'); gU.classList.remove('show'); gA.classList.remove('show'); gA.innerHTML=''; gI.classList.remove('pasted'); copy.textContent='Copiar prompt'; copy.classList.remove('done');
+      show('lib'); await sleep(1800);
+      await tapOn(document.getElementById('mselAll')); show('cat'); await sleep(1400);
+      await tapOn(document.getElementById('mpickCopy')); show('libcopy'); await sleep(1500);
+      await tapOn(document.getElementById('mcard2')); show('prompt'); await sleep(1400);
+      await tapOn(copy); copy.textContent='✓ ¡Copiado!'; copy.classList.add('done'); await sleep(1200);
+      show('gpt'); await sleep(900);
+      await tapOn(gI); gI.classList.add('pasted'); await sleep(800);
+      await tapOn(document.getElementById('mgSend')); gI.classList.remove('pasted'); gE.classList.add('hide'); gU.classList.add('show'); await sleep(700);
+      gA.classList.add('show'); for(var i=0;i<AI.length;i++){ await wait(); gA.insertAdjacentHTML('beforeend', AI[i]); await sleep(650); }
+      await sleep(3200);
+    }
+  }
+  run();
+})();
+</script>
+<script>
+(function(){
+  // Pop-up: ao clicar no plano de R$27,90, oferece o PREMIUM com desconto antes do checkout.
+  var up=document.getElementById('upsell'); if(!up) return;
+  var trigger=document.querySelector('.plan2:not(.best) a[href^="https://pay.hub.la/x2ECOub4xYeYXnGeiW7S"]');
+  if(!trigger) return;
+  var last=null;
+  function open(e){ e.preventDefault(); last=document.activeElement; up.hidden=false; document.body.classList.add('up-open'); up.querySelector('.up-yes').focus(); }
+  function close(){ up.hidden=true; document.body.classList.remove('up-open'); if(last) last.focus(); }
+  trigger.addEventListener('click', open);
+  up.querySelectorAll('[data-up-close]').forEach(function(b){ b.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && !up.hidden) close(); });
+})();
+</script>
+<script>
+(function(){
+  // Cupom do pop-up: copia ao clicar no código e também ao seguir pro checkout
+  var b=document.getElementById('upCode'); if(!b) return;
+  function copy(){ var c=b.dataset.code; (navigator.clipboard?navigator.clipboard.writeText(c):Promise.reject()).catch(function(){}); b.classList.add('ok'); b.querySelector('i').textContent='¡Copiado!'; }
+  b.addEventListener('click', copy);
+  var yes=document.querySelector('.up-yes'); if(yes) yes.addEventListener('click', copy);
+})();
+</script>
+</body>
+</html>
